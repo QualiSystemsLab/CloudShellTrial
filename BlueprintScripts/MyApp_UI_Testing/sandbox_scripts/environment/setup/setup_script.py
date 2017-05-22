@@ -51,14 +51,14 @@ class EnvironmentSetup(object):
         my_app_name = next(resource.Name for resource in reservation_details.ReservationDescription.Resources if resource.Name.startswith('Sylius - App Only'))
 
         my_app_config = AppConfiguration(my_app_name, [ConfigParam('database_server_address', db_address)])
-        api.ConfigureApps(self.reservation_id, [my_app_config])
+        api.ConfigureApps(self.reservation_id, [my_app_config], printOutput=False)
 
         api.WriteMessageToReservationOutput(reservationId=self.reservation_id, message='Configuring Selenium Grid')
         selenium_hub_address = next(resource.FullAddress for resource in reservation_details.ReservationDescription.Resources if resource.Name.startswith('Selenium Hub'))
         selenium_node_app_names = [resource.Name for resource in reservation_details.ReservationDescription.Resources if resource.Name.startswith('Selenium Node')]
 
         my_app_configs = [AppConfiguration(app_name, [ConfigParam('hub_server_address', selenium_hub_address)]) for app_name in selenium_node_app_names]
-        api.ConfigureApps(self.reservation_id, my_app_configs)
+        api.ConfigureApps(self.reservation_id, my_app_configs, printOutput=False)
 
         self.logger.info("Setup for reservation {0} completed".format(self.reservation_id))
         api.WriteMessageToReservationOutput(reservationId=self.reservation_id, message='Sandbox setup finished successfully')
