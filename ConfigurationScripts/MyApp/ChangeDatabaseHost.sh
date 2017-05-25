@@ -4,5 +4,5 @@ sleep 5s
 sudo php /acme/bin/console server:stop $ip:8000 &
 
 sleep 5s
-sudo php /acme/bin/console server:start $ip:8000 &
+sudo php /acme/bin/console server:start $ip:8000
 
