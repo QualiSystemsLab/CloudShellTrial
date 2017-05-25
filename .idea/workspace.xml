@@ -27,8 +27,8 @@
       <file leaf-file-name="setup_script.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/BlueprintScripts/MyApp_HA/sandbox_scripts/environment/setup/setup_script.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
-              <caret line="61" column="82" lean-forward="true" selection-start-line="61" selection-start-column="82" selection-end-line="61" selection-end-column="82" />
+            <state relative-caret-position="398">
+              <caret line="54" column="0" lean-forward="true" selection-start-line="54" selection-start-column="0" selection-end-line="54" selection-end-column="0" />
               <folding>
                 <element signature="e#0#43#0" expanded="true" />
               </folding>
@@ -563,8 +563,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/BlueprintScripts/MyApp_HA/sandbox_scripts/environment/setup/setup_script.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="61" column="82" lean-forward="true" selection-start-line="61" selection-start-column="82" selection-end-line="61" selection-end-column="82" />
+        <state relative-caret-position="398">
+          <caret line="54" column="0" lean-forward="true" selection-start-line="54" selection-start-column="0" selection-end-line="54" selection-end-column="0" />
           <folding>
             <element signature="e#0#43#0" expanded="true" />
           </folding>
