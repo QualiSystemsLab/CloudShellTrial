@@ -4,3 +4,4 @@ do
   sudo echo "	server my_app$index $web_server_address:8000 check" >> /etc/haproxy/haproxy.cfg
   index=$(($index+1))
 done
+service haproxy reload
