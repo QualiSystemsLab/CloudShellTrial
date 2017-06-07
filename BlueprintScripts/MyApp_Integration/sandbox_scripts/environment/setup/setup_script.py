@@ -47,7 +47,7 @@ class EnvironmentSetup(object):
                                             reservation_id=self.reservation_id)
 
         db_server_address = next(resource.FullAddress for resource in reservation_details.ReservationDescription.Resources if resource.Name.startswith('MySQL DB'))
-        app_to_configure = next(resource.Name for resource in reservation_details.ReservationDescription.Resources if resource.Name.startswith('Sylius - App Only'))
+        app_to_configure = next(resource.Name for resource in reservation_details.ReservationDescription.Resources if "My App Web Server" in resource.ResourceModelName)
 
         my_app_config = AppConfiguration(app_to_configure, [ConfigParam('database_server_address', db_server_address)])
         api.ConfigureApps(self.reservation_id, [my_app_config])

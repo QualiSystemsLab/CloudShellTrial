@@ -48,7 +48,7 @@ class EnvironmentSetup(object):
 
         api.WriteMessageToReservationOutput(reservationId=self.reservation_id, message='Configuring Sylius Apps')
         db_address = next(resource.FullAddress for resource in reservation_details.ReservationDescription.Resources if resource.Name.startswith('MySQL DB'))
-        my_apps = [resource for resource in reservation_details.ReservationDescription.Resources if resource.Name.startswith('Sylius - App Only')]
+        my_apps = [resource for resource in reservation_details.ReservationDescription.Resources if "My App Web Server" in resource.ResourceModelName]
 
         my_app_configs = [AppConfiguration(my_app.Name, [ConfigParam('database_server_address', db_address)]) for my_app in my_apps]
         api.ConfigureApps(self.reservation_id, my_app_configs, printOutput=False)
@@ -56,7 +56,7 @@ class EnvironmentSetup(object):
         api.WriteMessageToReservationOutput(reservationId=self.reservation_id, message='Configuring HA Proxy')
         my_app_addresses = [my_app.FullAddress for my_app in my_apps]
         my_app_addresses_string = ",".join(my_app_addresses)
-        ha_proxy_app = next(resource.Name for resource in reservation_details.ReservationDescription.Resources if resource.Name.startswith('HA Proxy'))
+        ha_proxy_app = next(resource.Name for resource in reservation_details.ReservationDescription.Resources if "HA Proxy" in resource.ResourceModelName)
 
         my_app_config = AppConfiguration(ha_proxy_app, [ConfigParam('web_server_addresses', my_app_addresses_string)])
         api.ConfigureApps(self.reservation_id, [my_app_config], printOutput=False)
