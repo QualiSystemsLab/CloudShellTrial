@@ -56,22 +56,26 @@ class SeleniumHub:
 			test_output = subprocess.check_output([sys.executable, test_name + ".py", "hub={0}".format(context.resource.address), "target={0}".format(target_url)], stderr=subprocess.STDOUT)
 			with open(os.path.join("artifacts", "test_output.txt"), mode="w") as output_file:
 				output_file.write(test_output)
-
+			
+			return_message = "Test passed, check attachments for output"
+		except subprocess.CalledProcessError as error:
+			with open(os.path.join("artifacts", "test_output.txt"), mode="w") as output_file:
+				output_file.write("[{0}] {1}:\n{2}".format(error.returncode, error.message + '\n' + error.output))
+			
+			return_message = "Test failed, check attachment for output" 
+		finally:
 			test_results_filename = test_name + "-result-" + datetime.datetime.strftime(datetime.datetime.now(), "%m-%d_%H-%M")
 			shutil.make_archive(base_name=test_results_filename, format="zip", root_dir='artifacts')
 
 			attach_file_result_code = self._attach_file_to_reservation(context, test_results_filename + ".zip", test_results_filename + ".zip")
-			if 200 <= attach_file_result_code < 300:
-				return "Test passed, check attachments for output"
-			else:
-				return "Error Attaching File to reservation"
-		except subprocess.CalledProcessError as error:
-			return "Test failed with code {0} and output:\n{1}".format(error.returncode, error.message + '\n' + error.output)
-		finally:
 			shutil.rmtree(path="artifacts", ignore_errors=True)
 			os.remove(test_name + ".py")
 			if test_results_filename:
 				os.remove(test_results_filename + ".zip")
+			if not 200 <= attach_file_result_code < 300:
+				return "Error Attaching File to reservation"
+			else:
+				return return_message
 
 	def _attach_file_to_reservation(self, context, filename, name_in_reservation):
 		"""
