@@ -19,5 +19,4 @@ assert "Latest products" in header.text
 print(datetime.strftime(datetime.now(), timeformat) + "Taking screenshot...")
 selenium_driver.get_screenshot_as_file('artifacts/Main_Page.png')
 selenium_driver.close()
-
 print(datetime.strftime(datetime.now(), timeformat) + "Test Completed Successfully")
