@@ -17,4 +17,4 @@ print(datetime.strftime(datetime.now(), timeformat) + "Taking screenshot...\n")
 selenium_driver.get_screenshot_as_file('artifacts/Main_Page.png')
 selenium_driver.close()
 
-print(datetime.strftime(datetime.now()) + "Test Completed Successfully")
+print(datetime.strftime(datetime.now(), timeformat) + "Test Completed Successfully")
