@@ -9,11 +9,11 @@ argsdict = {argument.split("=")[0]: argument.split("=")[1] for argument in sys.a
 test_url = "http://" + argsdict["target"]
 hub_address = argsdict["hub"]
 
-print(datetime.strftime(datetime.now(), timeformat) + "Starting Selenium Web Driver...\n")
+print(datetime.strftime(datetime.now(), timeformat) + "Starting Selenium Web Driver...")
 selenium_driver = webdriver.Remote(command_executor="http://" + hub_address + ":4444/wd/hub", desired_capabilities={"browserName": "chrome"})
-print(datetime.strftime(datetime.now(), timeformat) + "Getting test page...\n")
+print(datetime.strftime(datetime.now(), timeformat) + "Getting test page...")
 selenium_driver.get(test_url)
-print(datetime.strftime(datetime.now(), timeformat) + "Taking screenshot...\n")
+print(datetime.strftime(datetime.now(), timeformat) + "Taking screenshot...")
 selenium_driver.get_screenshot_as_file('artifacts/Main_Page.png')
 selenium_driver.close()
 
