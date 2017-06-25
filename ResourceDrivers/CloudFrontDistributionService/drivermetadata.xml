@@ -1,16 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Driver Name="AWS CloudFront" Version="1.0.0" MainClass="PythonDriver.CloudFront" Description="CloudFront Driver">
 	<Layout>
-		<Category Name="Management">
+		<Category Name="Hidden Commands">
 			<Command DisplayName="Create CloudFront Distribution" Name="create_dist" Description="Create a CloudFront distribution from an ELB" Tags="" >
 				<Parameters>
 					<Parameter DisplayName="Elastic Load Balancer Name" Name="elb_name" Type="String" Mandatory="True" DefaultValue=""  Description="Name of the ELB to use as source"/>
 				</Parameters>
 			</Command>
-			<Command DisplayName="Get CF Distribution Details" Name="get_cf_dist_details" Description="Show the details of the provisioned Distribution" Tags="" />
 			<Command DisplayName="Disable CF Distribution" Name="disable_cf_dist" Description="Disable the provisioned Distribution" Tags="" />
 			<Command DisplayName="Enable CF Distribution" Name="enable_cf_dist" Description="Enable the provisioned Distribution" Tags="" />
 			<Command DisplayName="Delete CF Distribution" Name="delete_cf_dist" Description="Delete the provisioned Distribution" Tags="" />
+		</Category>
+		<Category Name="Management">
+			<Command DisplayName="Get Administrative Details" Name="get_cf_dist_details" Description="Show the full details of the provisioned CloudFront Distribution" Tags="" />
+			<Command DisplayName="Get Access Information" Name="get_cf_access_details" Description="Show the link for connecting to the CloudFront distribution" Tags="" />
 		</Category>
 	</Layout>
 </Driver>

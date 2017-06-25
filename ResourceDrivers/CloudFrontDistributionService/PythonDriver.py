@@ -123,18 +123,23 @@ class CloudFront:
 			"IsIPV6Enabled": False 
 			})
 
-		api.WriteMessageToReservationOutput(context.reservation.reservation_id, "Waiting for distribution to finish deployment...")
+		api.WriteMessageToReservationOutput(context.reservation.reservation_id, "Waiting for CloudFront distribution to finish deployment...")
 		api.SetServiceLiveStatus(context.reservation.reservation_id, context.resource.name, "In Progress", "Deployment in progress")
 		self._wait_for_distribution_deployed(create_response["Distribution"]["Id"], cf_client)
 		api.SetServiceLiveStatus(context.reservation.reservation_id, context.resource.name, "Online", "Deployment Complete")
 		api.SetServiceAttributesValues(context.reservation.reservation_id, context.resource.name, 
 			[AttributeNameValue("AWS CF ID", create_response["Distribution"]["Id"]), AttributeNameValue("External_URL", create_response["Distribution"]["DomainName"])])
-		return "CloudFront Distriubtion deployed successfully at: " + create_response["Distribution"]["DomainName"]
+		return "CloudFront Distriubtion deployed successfully at:\n" + "http://" + create_response["Distribution"]["DomainName"]
 
 	def get_cf_dist_details(self, context):
 		cf_client = self._get_amazon_session(context).client("cloudfront")
 		cf_details = cf_client.get_distribution(Id=context.resource.attributes["AWS CF ID"])
 		return "CloudFront Distribution Details:\n" + yaml.safe_dump(cf_details["Distribution"], default_flow_style=False)
+
+	def get_cf_access_details(self, context):
+		cf_client = self._get_amazon_session(context).client("cloudfront")
+		cf_details = cf_client.get_distribution(Id=context.resource.attributes["AWS CF ID"])
+		return "http://" + cf_details["Distribution"]["DomainName"]
 
 	def disable_cf_dist(self, context):
 		api = self._init_cs_api(context)
