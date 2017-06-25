@@ -46,13 +46,13 @@ class EnvironmentSetup(object):
                                             resource_details_cache=resource_details_cache,
                                             reservation_id=self.reservation_id)
 
-        api.WriteMessageToReservationOutput(reservationId=self.reservation_id, message='Configuring Sylius App')
+        api.WriteMessageToReservationOutput(reservationId=self.reservation_id, message='Configuring My App Web Servers...')
         db_address = next(resource.FullAddress for resource in reservation_details.ReservationDescription.Resources if resource.Name.startswith('MySQL DB'))
         my_app_name = next(resource.Name for resource in reservation_details.ReservationDescription.Resources if "My App Web Server" in resource.ResourceModelName)
 
         my_app_config = AppConfiguration(my_app_name, [ConfigParam('database_server_address', db_address)])
         api.ConfigureApps(self.reservation_id, [my_app_config], printOutput=False)
-        api.WriteMessageToReservationOutput(reservationId=self.reservation_id, message='Configuring Selenium Grid')
+        api.WriteMessageToReservationOutput(reservationId=self.reservation_id, message='Configuring Selenium Grid...')
         selenium_hub_address = next(resource.FullAddress for resource in reservation_details.ReservationDescription.Resources if "Selenium Hub" in resource.ResourceModelName)
         selenium_node_app_names = [resource.Name for resource in reservation_details.ReservationDescription.Resources if "Selenium Node" in resource.ResourceModelName]
         my_app_configs = [AppConfiguration(app_name, [ConfigParam('hub_server_address', selenium_hub_address)]) for app_name in selenium_node_app_names]
