@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Driver Name="Selenium Hub" Version="1.0.0" MainClass="PythonDriver.SeleniumHub" Description="Selenium Hub Driver">
   <Layout>
-    <Category Name="Testing">
-      <Command Description="Run a Selenium Test" DisplayName="Run Selenium Test" Name="run_selenium_test" Tags="" >
-        <Parameters>
-          <Parameter Name="test_name" Type="String" Mandatory="True" DisplayName="Test Name" DefaultValue=""  Description="Name of the Selenium Test to Run"/>
-          <Parameter Name="target_resource_name" Type="String" Mandatory="True" DisplayName="Target Resource Name" DefaultValue=""  Description="Name of the resource to run the test on"/>
-        </Parameters>
-      </Command>
-    </Category>
+	<Category Name="Testing">
+	  <Command Description="Run a Selenium Test" DisplayName="Run Selenium Test" Name="run_selenium_test" Tags="" >
+		<Parameters>
+		  <Parameter Name="test_name" Type="String" Mandatory="True" DisplayName="Test Name" DefaultValue=""  Description="Name of the Selenium Test to Run"/>
+		  <Parameter Name="target_resource_name" Type="String" Mandatory="True" DisplayName="Target Resource Name" DefaultValue=""  Description="Name of the resource to run the test on"/>
+		</Parameters>
+	  </Command>
+		<Command Description="Show Tests available in the tests location" DisplayName="Show Avaiable Tests" Name="show_available_tests" Tags="" />
+	</Category>
   </Layout>
 </Driver>

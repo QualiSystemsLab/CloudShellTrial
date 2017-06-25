@@ -2,17 +2,77 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="266741d1-230a-4d8b-9e53-1ef707e338da" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ResourceDrivers/SeleniumHub/PythonDriver.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ResourceDrivers/SeleniumHub/drivermetadata.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ResourceDrivers/SeleniumHub/requirements.txt" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/BlueprintScripts/MyApp_HA/MyApp_HA.zip" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/BlueprintScripts/MyApp_Integration/__init__.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/BlueprintScripts/MyApp_Integration/__main__.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/BlueprintScripts/MyApp_Integration/sandbox_scripts/__init__.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/BlueprintScripts/MyApp_Integration/sandbox_scripts/environment/__init__.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/BlueprintScripts/MyApp_Integration/sandbox_scripts/environment/setup/__init__.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/BlueprintScripts/MyApp_Integration/sandbox_scripts/environment/setup/remap_child_resources_constants.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/BlueprintScripts/MyApp_Integration/sandbox_scripts/environment/setup/setup_script.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/BlueprintScripts/MyApp_Integration/sandbox_scripts/environment/teardown/__init__.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/BlueprintScripts/MyApp_Integration/sandbox_scripts/helpers/__init__.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/BlueprintScripts/MyApp_Integration/sandbox_scripts/helpers/resource_helpers.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/BlueprintScripts/MyApp_Integration/sandbox_scripts/profiler/__init__.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/BlueprintScripts/MyApp_Integration/sandbox_scripts/profiler/env_profiler.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/BlueprintScripts/MyApp_Integration/version.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/BlueprintScripts/MyApp_Staging/MyApp_Staging.zip" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/BlueprintScripts/MyApp_Staging/__init__.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/BlueprintScripts/MyApp_Staging/__main__.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/BlueprintScripts/MyApp_Staging/sandbox_scripts/__init__.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/BlueprintScripts/MyApp_Staging/sandbox_scripts/environment/__init__.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/BlueprintScripts/MyApp_Staging/sandbox_scripts/environment/setup/__init__.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/BlueprintScripts/MyApp_Staging/sandbox_scripts/environment/setup/remap_child_resources_constants.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/BlueprintScripts/MyApp_Staging/sandbox_scripts/environment/setup/setup_script.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/BlueprintScripts/MyApp_Staging/sandbox_scripts/environment/teardown/__init__.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/BlueprintScripts/MyApp_Staging/sandbox_scripts/helpers/__init__.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/BlueprintScripts/MyApp_Staging/sandbox_scripts/helpers/resource_helpers.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/BlueprintScripts/MyApp_Staging/sandbox_scripts/profiler/__init__.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/BlueprintScripts/MyApp_Staging/sandbox_scripts/profiler/env_profiler.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/BlueprintScripts/MyApp_Staging/version.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/BlueprintScripts/MyApp_Staging_teardown/MyApp_Staging_teardown.zip" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/BlueprintScripts/MyApp_Staging_teardown/__init__.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/BlueprintScripts/MyApp_Staging_teardown/__main__.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/BlueprintScripts/MyApp_Staging_teardown/sandbox_scripts/__init__.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/BlueprintScripts/MyApp_Staging_teardown/sandbox_scripts/environment/__init__.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/BlueprintScripts/MyApp_Staging_teardown/sandbox_scripts/environment/setup/__init__.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/BlueprintScripts/MyApp_Staging_teardown/sandbox_scripts/environment/setup/remap_child_resources_constants.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/BlueprintScripts/MyApp_Staging_teardown/sandbox_scripts/environment/setup/setup_script.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/BlueprintScripts/MyApp_Staging_teardown/sandbox_scripts/environment/teardown/__init__.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/BlueprintScripts/MyApp_Staging_teardown/sandbox_scripts/environment/teardown/teardown_script.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/BlueprintScripts/MyApp_Staging_teardown/sandbox_scripts/helpers/__init__.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/BlueprintScripts/MyApp_Staging_teardown/sandbox_scripts/helpers/resource_helpers.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/BlueprintScripts/MyApp_Staging_teardown/sandbox_scripts/profiler/__init__.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/BlueprintScripts/MyApp_Staging_teardown/sandbox_scripts/profiler/env_profiler.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/BlueprintScripts/MyApp_Staging_teardown/version.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/BlueprintScripts/MyApp_UI_Testing/__init__.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/BlueprintScripts/MyApp_UI_Testing/__main__.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/BlueprintScripts/MyApp_UI_Testing/sandbox_scripts/__init__.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/BlueprintScripts/MyApp_UI_Testing/sandbox_scripts/environment/__init__.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/BlueprintScripts/MyApp_UI_Testing/sandbox_scripts/environment/setup/__init__.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/BlueprintScripts/MyApp_UI_Testing/sandbox_scripts/environment/setup/remap_child_resources_constants.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/BlueprintScripts/MyApp_UI_Testing/sandbox_scripts/environment/setup/setup_script.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/BlueprintScripts/MyApp_UI_Testing/sandbox_scripts/environment/teardown/__init__.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/BlueprintScripts/MyApp_UI_Testing/sandbox_scripts/helpers/__init__.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/BlueprintScripts/MyApp_UI_Testing/sandbox_scripts/helpers/resource_helpers.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/BlueprintScripts/MyApp_UI_Testing/sandbox_scripts/profiler/__init__.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/BlueprintScripts/MyApp_UI_Testing/sandbox_scripts/profiler/env_profiler.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/BlueprintScripts/MyApp_UI_Testing/version.txt" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.vs/CloudShellTrial/v15/.suo" afterPath="$PROJECT_DIR$/.vs/CloudShellTrial/v15/.suo" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.vs/slnx.sqlite" afterPath="$PROJECT_DIR$/.vs/slnx.sqlite" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ResourceDrivers/CloudFrontDistributionService/CloudFrontDistributionService.zip" afterPath="$PROJECT_DIR$/ResourceDrivers/CloudFrontDistributionService/CloudFrontDistributionService.zip" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ResourceDrivers/ElasticLoadBalancerService/ElasticLoadBalancerService.zip" afterPath="$PROJECT_DIR$/ResourceDrivers/ElasticLoadBalancerService/ElasticLoadBalancerService.zip" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ResourceDrivers/SeleniumHub/SeleniumHub.zip" afterPath="$PROJECT_DIR$/ResourceDrivers/SeleniumHub/SeleniumHub.zip" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.vs/ProjectSettings.json" afterPath="$PROJECT_DIR$/.vs/ProjectSettings.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.vs/VSWorkspaceState.json" afterPath="$PROJECT_DIR$/.vs/VSWorkspaceState.json" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BlueprintScripts/MyApp_HA/sandbox_scripts/environment/setup/setup_script.py" afterPath="$PROJECT_DIR$/BlueprintScripts/MyApp_HA/sandbox_scripts/environment/setup/setup_script.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BlueprintScripts/MyApp_Integration/sandbox_scripts/environment/setup/setup_script.py" afterPath="$PROJECT_DIR$/BlueprintScripts/MyApp_Integration/sandbox_scripts/environment/setup/setup_script.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BlueprintScripts/MyApp_UI_Testing/sandbox_scripts/environment/setup/setup_script.py" afterPath="$PROJECT_DIR$/BlueprintScripts/MyApp_UI_Testing/sandbox_scripts/environment/setup/setup_script.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ConfigurationScripts/MyApp/ChangeDatabaseHost.sh" afterPath="$PROJECT_DIR$/ConfigurationScripts/MyApp/ChangeDatabaseHost.sh" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ResourceDrivers/CloudFrontDistributionService/PythonDriver.py" afterPath="$PROJECT_DIR$/ResourceDrivers/CloudFrontDistributionService/PythonDriver.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ResourceDrivers/CloudFrontDistributionService/drivermetadata.xml" afterPath="$PROJECT_DIR$/ResourceDrivers/CloudFrontDistributionService/drivermetadata.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ResourceDrivers/ElasticLoadBalancerService/PythonDriver.py" afterPath="$PROJECT_DIR$/ResourceDrivers/ElasticLoadBalancerService/PythonDriver.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ResourceDrivers/ElasticLoadBalancerService/drivermetadata.xml" afterPath="$PROJECT_DIR$/ResourceDrivers/ElasticLoadBalancerService/drivermetadata.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ResourceDrivers/SeleniumHub/PythonDriver.py" afterPath="$PROJECT_DIR$/ResourceDrivers/SeleniumHub/PythonDriver.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ResourceDrivers/SeleniumHub/drivermetadata.xml" afterPath="$PROJECT_DIR$/ResourceDrivers/SeleniumHub/drivermetadata.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ResourceDrivers/SeleniumHub/requirements.txt" afterPath="$PROJECT_DIR$/ResourceDrivers/SeleniumHub/requirements.txt" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -23,62 +83,75 @@
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="drivermetadata.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ResourceDrivers/SeleniumHub/drivermetadata.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
-              <caret line="1" column="76" lean-forward="false" selection-start-line="1" selection-start-column="76" selection-end-line="1" selection-end-column="76" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file leaf-file-name="PythonDriver.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ResourceDrivers/SeleniumHub/PythonDriver.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="472">
-              <caret line="59" column="126" lean-forward="false" selection-start-line="59" selection-start-column="113" selection-end-line="59" selection-end-column="126" />
+            <state relative-caret-position="1105">
+              <caret line="73" column="12" lean-forward="false" selection-start-line="73" selection-start-column="12" selection-end-line="73" selection-end-column="12" />
               <folding>
                 <element signature="e#0#17#0" expanded="true" />
+                <marker date="1497961555740" expanded="true" signature="4107:4186" ph="&quot;&quot;&quot;...&quot;&quot;&quot;" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SampleTest.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/SeleniumTests/SampleTest.py">
+      <file leaf-file-name="__main__.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/BlueprintScripts/CloudShell_Trial/Setup/__main__.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
-              <caret line="20" column="0" lean-forward="true" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
+            <state relative-caret-position="391">
+              <caret line="30" column="0" lean-forward="false" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
               <folding>
-                <element signature="e#74#84#0" expanded="true" />
+                <element signature="e#0#43#0" expanded="true" />
+                <marker date="1497889566493" expanded="true" signature="1749:1964" ph="..." />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="run_test.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/BlueprintScripts/MyApp_Integration/run_test.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="255">
+              <caret line="17" column="0" lean-forward="false" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+              <folding>
+                <element signature="e#0#43#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Find_Text_In_Homepage.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/SeleniumTests/Find_Text_In_Homepage.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="272">
+              <caret line="18" column="55" lean-forward="false" selection-start-line="18" selection-start-column="55" selection-end-line="18" selection-end-column="55" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="setup_script.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/BlueprintScripts/MyApp_Integration/sandbox_scripts/environment/setup/setup_script.py">
+        <entry file="file://$PROJECT_DIR$/BlueprintScripts/MyApp_Integration/Setup/sandbox_scripts/environment/setup/setup_script.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="595">
-              <caret line="56" column="7" lean-forward="false" selection-start-line="56" selection-start-column="7" selection-end-line="56" selection-end-column="7" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="requirements.txt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ResourceDrivers/SeleniumHub/requirements.txt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="4" column="15" lean-forward="false" selection-start-line="4" selection-start-column="15" selection-end-line="4" selection-end-column="15" />
-              <folding />
+            <state relative-caret-position="748">
+              <caret line="54" column="20" lean-forward="false" selection-start-line="54" selection-start-column="20" selection-end-line="54" selection-end-column="20" />
+              <folding>
+                <element signature="e#0#43#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
     </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
@@ -99,8 +172,20 @@
         <option value="$PROJECT_DIR$/BlueprintScripts/MyApp_UI_Testing/sandbox_scripts/environment/setup/setup_script.py" />
         <option value="$PROJECT_DIR$/ResourceDrivers/SeleniumHub/requirements.txt" />
         <option value="$PROJECT_DIR$/ResourceDrivers/SeleniumHub/drivermetadata.xml" />
-        <option value="$PROJECT_DIR$/ResourceDrivers/SeleniumHub/PythonDriver.py" />
         <option value="$PROJECT_DIR$/SeleniumTests/SampleTest.py" />
+        <option value="$PROJECT_DIR$/ResourceDrivers/ElasticLoadBalancerService/PythonDriver.py" />
+        <option value="$PROJECT_DIR$/ResourceDrivers/CloudFrontDistributionService/PythonDriver.py" />
+        <option value="$PROJECT_DIR$/BlueprintScripts/MyApp_Staging/sandbox_scripts/environment/setup/setup_script.py" />
+        <option value="$PROJECT_DIR$/ResourceDrivers/SeleniumHub/PythonDriver.py" />
+        <option value="$PROJECT_DIR$/BlueprintScripts/CloudShell_Trial/CloudShellTrialSetup.py" />
+        <option value="$PROJECT_DIR$/BlueprintScripts/CloudShell_Trial/Setup/CloudShellTrialSetup.py" />
+        <option value="$PROJECT_DIR$/BlueprintScripts/CloudShell_Trial/Teardown/__main__.py" />
+        <option value="$PROJECT_DIR$/BlueprintScripts/CloudShell_Trial/Extend_Trial/__main__.py" />
+        <option value="$PROJECT_DIR$/BlueprintScripts/CloudShell_Trial/test.py" />
+        <option value="$PROJECT_DIR$/BlueprintScripts/CloudShell_Trial/Reset_Domain/__main__.py" />
+        <option value="$PROJECT_DIR$/BlueprintScripts/CloudShell_Trial/Setup/__main__.py" />
+        <option value="$PROJECT_DIR$/BlueprintScripts/MyApp_Integration/run_test.py" />
+        <option value="$PROJECT_DIR$/SeleniumTests/Find_Text_In_Homepage.py" />
       </list>
     </option>
   </component>
@@ -186,6 +271,20 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="ResourceDrivers" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CloudShellTrial" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CloudShellTrial" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="BlueprintScripts" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -204,7 +303,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="MyApp_HA" />
+              <option name="myItemId" value="MyApp_Staging" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -222,11 +321,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="MyApp_HA" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="sandbox_scripts" />
+              <option name="myItemId" value="MyApp_Integration" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -244,15 +339,11 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="MyApp_HA" />
+              <option name="myItemId" value="CloudShell_Trial" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="sandbox_scripts" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="environment" />
+              <option name="myItemId" value="Teardown" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -270,19 +361,55 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="MyApp_HA" />
+              <option name="myItemId" value="CloudShell_Trial" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="sandbox_scripts" />
+              <option name="myItemId" value="Setup" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CloudShellTrial" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CloudShellTrial" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="environment" />
+              <option name="myItemId" value="BlueprintScripts" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="setup" />
+              <option name="myItemId" value="CloudShell_Trial" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Reset_Domain" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CloudShellTrial" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CloudShellTrial" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="BlueprintScripts" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CloudShell_Trial" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Extend_Trial" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -292,13 +419,16 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+    <property name="settings.editor.selected.configurable" value="preferences.sourceCode.Python" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="settings.editor.splitter.proportion" value="0.2" />
     <property name="WebServerToolWindowFactoryState" value="false" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\leeor.v\Source\Repos\CloudShellTrial\BlueprintScripts\CloudShell_Trial\Setup" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\leeor.v\Source\Repos\CloudShellTrial\BlueprintScripts\CloudShell_Trial" />
       <recent name="C:\Users\leeor.v\Source\Repos\CloudShellTrial\ResourceDrivers\SeleniumHub" />
       <recent name="C:\Users\leeor.v\Source\Repos\CloudShellTrial\BlueprintScripts" />
     </key>
@@ -413,6 +543,12 @@
       <method />
     </configuration>
     <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
+      <node-interpreter>project</node-interpreter>
+      <node-options />
+      <gulpfile />
+      <tasks />
+      <arguments />
+      <envs />
       <method />
     </configuration>
     <configuration default="true" type="js.build_tools.npm" factoryName="npm">
@@ -462,6 +598,9 @@
   <component name="ShelveChangesManager" show_recycled="false">
     <option name="remove_strategy" value="false" />
   </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="266741d1-230a-4d8b-9e53-1ef707e338da" name="Default" comment="" />
@@ -473,29 +612,50 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.13965885" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2541806" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" x="2044" y="198" width="1876" height="665" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
-      <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
+    <layout-to-restore>
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.13646056" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="combo" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
+      <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+    </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="processedProjectFiles" value="true" />
@@ -504,89 +664,152 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager />
+    <breakpoint-manager>
+      <option name="time" value="1" />
+    </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/BlueprintScripts/MyApp_Integration/sandbox_scripts/environment/setup/remap_child_resources_constants.py">
+    <entry file="file://$PROJECT_DIR$/ResourceDrivers/SeleniumHub/PythonDriver.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/BlueprintScripts/MyApp_Integration/__main__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="39" lean-forward="false" selection-start-line="0" selection-start-column="39" selection-end-line="0" selection-end-column="39" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ResourceDrivers/SeleniumHub/drivercontext.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://C:/Temp/hello_world.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="19" lean-forward="true" selection-start-line="0" selection-start-column="19" selection-end-line="0" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://C:/Program Files (x86)/QualiSystems/TestShell/ExecutionServer/python/2.7.10/Lib/site-packages/cloudshell/shell/core/context.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="282">
-          <caret line="58" column="13" lean-forward="false" selection-start-line="58" selection-start-column="13" selection-end-line="58" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/BlueprintScripts/MyApp_UI_Testing/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/BlueprintScripts/MyApp_HA/sandbox_scripts/environment/setup/setup_script.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="50" column="149" lean-forward="false" selection-start-line="50" selection-start-column="100" selection-end-line="50" selection-end-column="149" />
+        <state relative-caret-position="1105">
+          <caret line="73" column="12" lean-forward="false" selection-start-line="73" selection-start-column="12" selection-end-line="73" selection-end-column="12" />
           <folding>
-            <element signature="e#0#43#0" expanded="false" />
+            <element signature="e#0#17#0" expanded="true" />
+            <marker date="1497961555740" expanded="true" signature="4107:4186" ph="&quot;&quot;&quot;...&quot;&quot;&quot;" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/BlueprintScripts/MyApp_UI_Testing/sandbox_scripts/environment/setup/setup_script.py">
+    <entry file="file://$PROJECT_DIR$/BlueprintScripts/CloudShell_Trial/Setup/__main__.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="476">
-          <caret line="53" column="82" lean-forward="true" selection-start-line="53" selection-start-column="82" selection-end-line="53" selection-end-column="82" />
+        <state relative-caret-position="391">
+          <caret line="30" column="0" lean-forward="false" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#43#0" expanded="true" />
+            <marker date="1497889566493" expanded="true" signature="1749:1964" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BlueprintScripts/MyApp_Integration/run_test.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="17" column="0" lean-forward="false" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#43#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BlueprintScripts/MyApp_Integration/Setup/sandbox_scripts/environment/setup/setup_script.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="748">
+          <caret line="54" column="20" lean-forward="false" selection-start-line="54" selection-start-column="20" selection-end-line="54" selection-end-column="20" />
+          <folding>
+            <element signature="e#0#43#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SeleniumTests/Find_Text_In_Homepage.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="18" column="55" lean-forward="false" selection-start-line="18" selection-start-column="55" selection-end-line="18" selection-end-column="55" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/BlueprintScripts/MyApp_Integration/sandbox_scripts/environment/setup/setup_script.py">
+    <entry file="file://$PROJECT_DIR$/ResourceDrivers/SeleniumHub/PythonDriver.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="595">
-          <caret line="56" column="7" lean-forward="false" selection-start-line="56" selection-start-column="7" selection-end-line="56" selection-end-column="7" />
+        <state relative-caret-position="918">
+          <caret line="62" column="12" lean-forward="false" selection-start-line="62" selection-start-column="12" selection-end-line="62" selection-end-column="12" />
+          <folding>
+            <element signature="e#0#17#0" expanded="true" />
+            <marker date="1497961555740" expanded="true" signature="4107:4186" ph="&quot;&quot;&quot;...&quot;&quot;&quot;" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ResourceDrivers/ElasticLoadBalancerService/PythonDriver.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1479">
+          <caret line="91" column="139" lean-forward="false" selection-start-line="91" selection-start-column="139" selection-end-line="91" selection-end-column="139" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ResourceDrivers/CloudFrontDistributionService/PythonDriver.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2839">
+          <caret line="172" column="109" lean-forward="false" selection-start-line="172" selection-start-column="109" selection-end-line="172" selection-end-column="109" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BlueprintScripts/MyApp_Staging/sandbox_scripts/environment/setup/setup_script.py" />
+    <entry file="file://$PROJECT_DIR$/BlueprintScripts/MyApp_HA/sandbox_scripts/environment/setup/setup_script.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="697">
+          <caret line="51" column="0" lean-forward="false" selection-start-line="51" selection-start-column="0" selection-end-line="51" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BlueprintScripts/CloudShell_Trial/Setup/__main__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="19" column="0" lean-forward="true" selection-start-line="18" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#43#0" expanded="true" />
+            <marker date="1497889566493" expanded="true" signature="1749:1964" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BlueprintScripts/CloudShell_Trial/Teardown/__main__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="544">
+          <caret line="38" column="29" lean-forward="false" selection-start-line="38" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BlueprintScripts/CloudShell_Trial/Extend_Trial/__main__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="26" column="0" lean-forward="true" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Program Files (x86)/QualiSystems/TestShell/ExecutionServer/python/2.7.10/Lib/site-packages/cloudshell/api/cloudshell_api.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="24208">
+          <caret line="1431" column="13" lean-forward="false" selection-start-line="1431" selection-start-column="13" selection-end-line="1431" selection-end-column="13" />
           <folding />
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/BlueprintScripts/CloudShell_Trial/Reset_Domain/__main__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="578">
+          <caret line="39" column="0" lean-forward="false" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BlueprintScripts/MyApp_Integration/sandbox_scripts/environment/setup/remap_child_resources_constants.py" />
+    <entry file="file://$PROJECT_DIR$/BlueprintScripts/MyApp_Integration/__main__.py" />
+    <entry file="file://$PROJECT_DIR$/ResourceDrivers/SeleniumHub/drivercontext.py" />
+    <entry file="file://C:/Temp/hello_world.py" />
+    <entry file="file://C:/Program Files (x86)/QualiSystems/TestShell/ExecutionServer/python/2.7.10/Lib/site-packages/cloudshell/shell/core/context.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="282">
+          <caret line="58" column="13" lean-forward="false" selection-start-line="58" selection-start-column="13" selection-end-line="58" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BlueprintScripts/MyApp_UI_Testing/__init__.py" />
+    <entry file="file://$PROJECT_DIR$/BlueprintScripts/MyApp_Integration/sandbox_scripts/environment/setup/setup_script.py" />
     <entry file="file://$PROJECT_DIR$/ResourceDrivers/SeleniumHub/requirements.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
           <caret line="4" column="15" lean-forward="false" selection-start-line="4" selection-start-column="15" selection-end-line="4" selection-end-column="15" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -598,23 +821,130 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/SeleniumTests/SampleTest.py" />
+    <entry file="file://$PROJECT_DIR$/ResourceDrivers/ElasticLoadBalancerService/PythonDriver.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1479">
+          <caret line="91" column="139" lean-forward="false" selection-start-line="91" selection-start-column="139" selection-end-line="91" selection-end-column="139" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ResourceDrivers/CloudFrontDistributionService/PythonDriver.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2839">
+          <caret line="177" column="109" lean-forward="false" selection-start-line="177" selection-start-column="109" selection-end-line="177" selection-end-column="109" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BlueprintScripts/MyApp_Staging/sandbox_scripts/environment/setup/setup_script.py" />
+    <entry file="file://$PROJECT_DIR$/BlueprintScripts/MyApp_HA/sandbox_scripts/environment/setup/setup_script.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="714">
+          <caret line="52" column="0" lean-forward="false" selection-start-line="52" selection-start-column="0" selection-end-line="52" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BlueprintScripts/CloudShell_Trial/Setup/__init__.py" />
+    <entry file="file://$PROJECT_DIR$/BlueprintScripts/CloudShell_Trial/__init__.py" />
+    <entry file="file://C:/Program Files (x86)/QualiSystems/TestShell/ExecutionServer/python/2.7.10/Lib/site-packages/cloudshell/api/cloudshell_api.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="24208">
+          <caret line="1431" column="13" lean-forward="false" selection-start-line="1431" selection-start-column="13" selection-end-line="1431" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BlueprintScripts/CloudShell_Trial/Teardown/__main__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="680">
+          <caret line="55" column="131" lean-forward="false" selection-start-line="55" selection-start-column="0" selection-end-line="55" selection-end-column="131" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BlueprintScripts/CloudShell_Trial/Extend_Trial/__main__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="22" column="0" lean-forward="false" selection-start-line="22" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BlueprintScripts/CloudShell_Trial/Reset_Domain/__main__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="646">
+          <caret line="43" column="17" lean-forward="false" selection-start-line="43" selection-start-column="0" selection-end-line="44" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/ResourceDrivers/SeleniumHub/PythonDriver.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="472">
-          <caret line="59" column="126" lean-forward="false" selection-start-line="59" selection-start-column="113" selection-end-line="59" selection-end-column="126" />
+        <state relative-caret-position="1105">
+          <caret line="73" column="12" lean-forward="false" selection-start-line="73" selection-start-column="12" selection-end-line="73" selection-end-column="12" />
           <folding>
             <element signature="e#0#17#0" expanded="true" />
+            <marker date="1497961555740" expanded="true" signature="4107:4186" ph="&quot;&quot;&quot;...&quot;&quot;&quot;" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/SeleniumTests/SampleTest.py">
+    <entry file="file://$PROJECT_DIR$/BlueprintScripts/CloudShell_Trial/Setup/__main__.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="20" column="0" lean-forward="true" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
+        <state relative-caret-position="391">
+          <caret line="30" column="0" lean-forward="false" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
           <folding>
-            <element signature="e#74#84#0" expanded="true" />
+            <element signature="e#0#43#0" expanded="true" />
+            <marker date="1497889566493" expanded="true" signature="1749:1964" ph="..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BlueprintScripts/CloudShell_Trial/test.py" />
+    <entry file="file://$PROJECT_DIR$/BlueprintScripts/MyApp_Integration/Setup/sandbox_scripts/environment/setup/remap_child_resources_constants.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BlueprintScripts/MyApp_Integration/Setup/sandbox_scripts/environment/setup/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BlueprintScripts/MyApp_Integration/Setup/__main__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BlueprintScripts/MyApp_Integration/Setup/sandbox_scripts/environment/setup/setup_script.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="748">
+          <caret line="54" column="20" lean-forward="false" selection-start-line="54" selection-start-column="20" selection-end-line="54" selection-end-column="20" />
+          <folding>
+            <element signature="e#0#43#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BlueprintScripts/MyApp_UI_Testing/sandbox_scripts/environment/setup/setup_script.py" />
+    <entry file="file://$PROJECT_DIR$/BlueprintScripts/MyApp_Integration/run_test.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="17" column="0" lean-forward="false" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#43#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SeleniumTests/Find_Text_In_Homepage.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="18" column="55" lean-forward="false" selection-start-line="18" selection-start-column="55" selection-end-line="18" selection-end-column="55" />
+          <folding />
         </state>
       </provider>
     </entry>

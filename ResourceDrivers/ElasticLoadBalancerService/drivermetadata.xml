@@ -1,22 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Driver Name="Elastic Load Balancer" Version="1.0.0" MainClass="PythonDriver.ElasticLoadBalancer" Description="Elastic Load Balancer Service Driver">
   <Layout>
-	<Category Name="Management">
-	  <Command DisplayName="Create Load Balancer" Name="create_elb" Description="Create an Elastic Load Balancer and store its name on this service" Tags="" >
-		<Parameters>
-		  <Parameter DisplayName="Elastic Load Balancer Name" Name="elb_name" Type="String" Mandatory="True" DefaultValue=""  Description="Name of the ELB to create"/>
-		  <Parameter DisplayName="Load Balancer Listeners" Name="listeners" Type="String" Mandatory="True" DefaultValue=""  Description="Comma separated list of      protocol:port->protocol:port (e.g. HTTP:80->HTTP:8000)"/>
-		  <Parameter DisplayName="Instance IDs" Name="instance_ids" Type="String" Mandatory="True" DefaultValue=""  Description="Comma separated list of instance IDs to add to the Load Balancer"/>
-		  <Parameter DisplayName="Apply Session Cookie?" Name="use_cookie" Type="String" Mandatory="True" DefaultValue=""  Description="if 'True' the Load Balancer will use a session cookie"/>
-		</Parameters>
-	  </Command>
+	<Category Name="Hidden Commands">
+		<Command DisplayName="Create Load Balancer" Name="create_elb" Description="Create an Elastic Load Balancer and store its name on this service" Tags="" >
+			<Parameters>
+				<Parameter DisplayName="Elastic Load Balancer Name" Name="elb_name" Type="String" Mandatory="True" DefaultValue=""  Description="Name of the ELB to create"/>
+				<Parameter DisplayName="Load Balancer Listeners" Name="listeners" Type="String" Mandatory="True" DefaultValue=""  Description="Comma separated list of      protocol:port->protocol:port (e.g. HTTP:80->HTTP:8000)"/>
+				<Parameter DisplayName="Instance IDs" Name="instance_ids" Type="String" Mandatory="True" DefaultValue=""  Description="Comma separated list of instance IDs to add to the Load Balancer"/>
+				<Parameter DisplayName="Apply Session Cookie?" Name="use_cookie" Type="String" Mandatory="True" DefaultValue=""  Description="if 'True' the Load Balancer will use a session cookie"/>
+			</Parameters>
+		</Command>
 		<Command DisplayName="Add Instances to Load Balancer" Name="add_instances_to_elb" Description="Add additional EC2 Instances into the Load Balancer" Tags="" >
 			<Parameters>
 				<Parameter DisplayName="Instance IDs" Name="instance_ids" Type="String" Mandatory="True" DefaultValue=""  Description="Comma separated list of instance IDs to add to the Load Balancer"/>
 			</Parameters>
 		</Command>
-	  <Command DisplayName="Get Load Balancer Details" Name="get_elb_details" Description="Show the details of the provisioned Load Balancer" Tags="" />
-	  <Command DisplayName="Delete Load Balancer" Name="delete_elb" Description="Delete the provisioned Load Balancer" Tags="" />
+		<Command DisplayName="Delete Load Balancer" Name="delete_elb" Description="Delete the provisioned Load Balancer" Tags="" />
+	</Category>
+	<Category Name="Management">
+		<Command DisplayName="Get Administrative Details" Name="get_elb_details" Description="Show the full details of the provisioned Elastic Load Balancer" Tags="" />
+		<Command DisplayName="Get Access Information" Name="get_elb_dns" Description="Show the link for connecting to the ELB" Tags="" />
 	</Category>
   </Layout>
 </Driver>

@@ -6,12 +6,10 @@
     "\\BlueprintScripts\\MyApp_HA\\sandbox_scripts",
     "\\BlueprintScripts\\MyApp_HA\\sandbox_scripts\\environment",
     "\\BlueprintScripts\\MyApp_HA\\sandbox_scripts\\environment\\setup",
-    "\\BlueprintScripts\\MyApp_UI_Testing\\sandbox_scripts",
-    "\\BlueprintScripts\\MyApp_UI_Testing\\sandbox_scripts\\profiler",
     "\\ConfigurationScripts",
     "\\ResourceDrivers",
-    "\\ResourceDrivers\\SeleniumHub",
-    "\\SeleniumTests"
+    "\\ResourceDrivers\\SeleniumHub"
   ],
+  "SelectedNode": "\\ResourceDrivers\\SeleniumHub\\PythonDriver.py",
   "PreviewInSolutionExplorer": false
 }

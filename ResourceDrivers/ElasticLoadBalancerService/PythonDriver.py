@@ -92,8 +92,13 @@ class ElasticLoadBalancer:
 		api.SetServiceLiveStatus(context.reservation.reservation_id, context.resource.name, "Online", "Load Balancer Created Successfully")
 		api.SetServiceAttributesValues(context.reservation.reservation_id, context.resource.name, 
 			[AttributeNameValue("AWS ELB Name", elb_name), AttributeNameValue("External_URL", creation_result["DNSName"])])
-		return "Elastic Load Balancer created successfully at: " + creation_result["DNSName"]
+		return "Elastic Load Balancer created successfully at:\n" + "http://" + creation_result["DNSName"]
 
+	def get_elb_dns(self, context):
+		elb_client = self._get_amazon_session(context).client("elb")
+		elb_details = elb_client.describe_load_balancers(LoadBalancerNames=[context.resource.attributes["AWS ELB Name"]])
+		return "http://" + elb_details["LoadBalancerDescriptions"][0]["DNSName"]
+	
 	def add_instances_to_elb(self, context, instance_ids):
 		elb_client = self._get_amazon_session(context).client("elb")
 		register_result = elb_client.register_instances_with_load_balancer(LoadBalancerName=elb_name, Instances=[{"InstanceId":instance_id} for instance_id in instance_ids.split(',')])

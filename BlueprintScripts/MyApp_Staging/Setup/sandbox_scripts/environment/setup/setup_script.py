@@ -6,7 +6,7 @@ from cloudshell.api.cloudshell_api import *
 from cloudshell.api.common_cloudshell_api import CloudShellAPIError
 from cloudshell.core.logger.qs_logger import get_qs_logger
 from remap_child_resources_constants import *
-
+import datetime
 from sandbox_scripts.helpers.resource_helpers import *
 from sandbox_scripts.profiler.env_profiler import profileit
 
@@ -47,20 +47,23 @@ class EnvironmentSetup(object):
 											resource_details_cache=resource_details_cache,
 											reservation_id=self.reservation_id)
 
-		api.WriteMessageToReservationOutput(reservationId=self.reservation_id, message='Configuring Sylius Apps')
-		db_address = next(resource.FullAddress for resource in reservation_details.ReservationDescription.Resources if resource.Name.startswith('MySQL DB'))
+		api.WriteMessageToReservationOutput(reservationId=self.reservation_id, message='Configuring My App Web Servers...')
+		db_address = next(resource.FullAddress for resource in reservation_details.ReservationDescription.Resources if "MySQL" in resource.ResourceModelName)
 		my_apps = [resource for resource in reservation_details.ReservationDescription.Resources if "My App Web Server" in resource.ResourceModelName]
 
 		my_app_configs = [AppConfiguration(my_app.Name, [ConfigParam('database_server_address', db_address), ConfigParam('app_color', app_color)]) for my_app, app_color in zip(my_apps, self.app_colors)]
 		api.ConfigureApps(self.reservation_id, my_app_configs, printOutput=False)
 
-		api.WriteMessageToReservationOutput(reservationId=self.reservation_id, message='Configuring HA Proxy')
-		my_app_addresses = [my_app.FullAddress for my_app in my_apps]
-		my_app_addresses_string = ",".join(my_app_addresses)
-		ha_proxy_app = next(resource.Name for resource in reservation_details.ReservationDescription.Resources if "HA Proxy" in resource.ResourceModelName)
+		api.WriteMessageToReservationOutput(reservationId=self.reservation_id, message='Configuring Elastic Load Balancer...')
+		my_app_instance_ids = ','.join([my_app.VmDetails.UID for my_app in my_apps])
 
-		my_app_config = AppConfiguration(ha_proxy_app, [ConfigParam('web_server_addresses', my_app_addresses_string)])
-		api.ConfigureApps(self.reservation_id, [my_app_config], printOutput=False)
+		elb_name = "My-App-ELB" + datetime.datetime.strftime(datetime.datetime.now(), "%H-%M-%S")
+		command_inputs = {"elb_name":elb_name, "listeners":"HTTP:80->HTTP:8000", "instance_ids":my_app_instance_ids, "use_cookie":"True"}
+		command_inputs = [InputNameValue(k, v) for k, v in command_inputs.items()]
+		api.ExecuteCommand(self.reservation_id, "AWS Elastic Load Balancer", "Service", "create_elb", command_inputs, True)
+
+		api.WriteMessageToReservationOutput(reservationId=self.reservation_id, message='Configuring CloudFront Distribution...')
+		api.ExecuteCommand(self.reservation_id, "AWS CloudFront", "Service", "create_dist", [InputNameValue("elb_name", elb_name)], True)
 
 		self.logger.info("Setup for reservation {0} completed".format(self.reservation_id))
 		api.WriteMessageToReservationOutput(reservationId=self.reservation_id, message='Sandbox setup finished successfully')
