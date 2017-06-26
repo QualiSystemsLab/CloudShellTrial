@@ -60,7 +60,7 @@ class SeleniumHub:
 		return_message =""
 		try:
 			# Call the python executable running this driver to run the test.
-			test_output = subprocess.check_output([sys.executable, test_name + ".py", "hub={0}".format(context.resource.address), "target={0}".format(target_url)])
+			test_output = subprocess.check_output([sys.executable, test_name + ".py", "hub=" + context.resource.address, "target=" + target_url, "artifacts_folder=" + artifacts_folder_name])
 			with open(os.path.join(artifacts_folder_name, "test_output.txt"), mode="w") as output_file:
 				output_file.write(test_output)
 			
