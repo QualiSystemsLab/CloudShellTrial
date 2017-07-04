@@ -13,7 +13,7 @@ connectivityContext = json.loads(parameter["qualiConnectivityContext"])
 global_inputs = {in_param["parameterName"]:in_param["value"] for in_param in reservationContext["parameters"]["globalInputs"]}
 first_name = global_inputs["First Name"]
 last_name = global_inputs["Last Name"]
-email = global_inputs["email"]
+email = global_inputs["email"].lower()
 company = global_inputs["Company Name"]
 phone = global_inputs["Phone number"]
 owner_email = global_inputs["Quali Owner"]
@@ -33,20 +33,22 @@ admin_email = api.GetUserDetails("admin").Email
 api.WriteMessageToReservationOutput(reservationContext["id"], "Creating New Domain")
 domain_name = '.'.join(new_username.split('.')[:-1]).replace('@', '-')
 if domain_name in [domain.Name for domain in api.GetGroupDomains("System Administrators").TestShellDomains]:
-	email_title = "CloudShell Trial: Failed to setup trial"
-	email_body = "Failed to setup trial for {user} because the requested domain name already exists".format(user=new_username)
-	smtp_client.send_email(",".join([owner_email, admin_email]), email_title, email_body, False)
-	api.WriteMessageToReservationOutput(reservationContext["id"], "Domain already exists, aborting trial creation")
-	api.EndReservation(reservationContext["id"])
-
-api.AddNewDomain(domainName=domain_name, description="Domain for {0} {1}'s Trial".format(first_name, last_name))
+	id_suffix = 1
+	while domain_name + str(id_suffix) in [domain.Name for domain in api.GetGroupDomains("System Administrators").TestShellDomains]: 
+		id_suffix += 1
+	domain_name = domain_name + str(id_suffix)
+	api.WriteMessageToReservationOutput(reservationContext["id"], "The requested domain already exists, appending {} to new domain name, please contact system admin at trial@quali.com".format(id_suffix))
+	api.AddNewDomain(domainName=domain_name, description="Domain for {0} {1}'s Trial".format(first_name, last_name))
+else:
+	api.AddNewDomain(domainName=domain_name, description="Domain for {0} {1}'s Trial".format(first_name, last_name))
 
 # Create User Account
 api.WriteMessageToReservationOutput(reservationContext["id"], "Creating trial user")
-if new_username in [user.Name for user in api.GetAllUsersDetails().Users]:
+if new_username in [user.Name.lower() for user in api.GetAllUsersDetails().Users]:
 	generated_password = ''.join(random.choice(string.ascii_letters + string.digits) for _ in range(8))
 	api.UpdateUser(username=new_username, email=email, isActive=True)
 	api.UpdateUserPassword(username=new_username, password=generated_password)
+	api.WriteMessageToReservationOutput(reservationContext["id"], "This user already had a trial, please contact system admin at trial@quali.com")
 else:
 	generated_password = ''.join(random.choice(string.ascii_letters + string.digits) for _ in range(8))
 	api.AddNewUser(username=new_username, password=generated_password, email=email, isActive=True)

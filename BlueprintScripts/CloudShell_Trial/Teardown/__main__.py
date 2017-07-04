@@ -36,8 +36,8 @@ api.WriteMessageToReservationOutput(reservationContext["id"], "Sending 'Trial En
 hubspot_helper = Hubspot_API_Helper("cba66474-e4e4-4f5b-9b9b-35620577f343")
 hubspot_helper.enroll_contact_to_workflow(email, "1980444")
 
-email_title = "CloudShell Trial: Trial has ended for {user}".format(new_username)
-email_body = "The CloudShell trial for {user} has ended".format(user=new_username)
+email_title = "CloudShell Trial: Trial has ended for {user}".format(username)
+email_body = "The CloudShell trial for {user} has ended".format(user=username)
 smtp_client.send_email(",".join(owner_email, admin_email), email_title, email_body, False)
 
 # remove user from groups and deactivate
@@ -49,7 +49,7 @@ groups_in_domain_users = itertools.chain([group.Users for group in api.GetGroups
 groups_in_domain_users = [user.Name for user in groups_in_domain_users]
 if username in groups_in_domain_users:
 	email_title = "CloudShell Trial: Failed to remove user from domain"
-	email_body = "Failed to remove {user} from trial domain!".format(user=new_username)
+	email_body = "Failed to remove {user} from trial domain!".format(user=username)
 	smtp_client.send_email(",".join([owner_email, admin_email]), email_title, email_body, False)
 	api.WriteMessageToReservationOutput(reservationContext["id"], "Critical error:User still has access to domain")
 else:
