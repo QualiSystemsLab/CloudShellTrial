@@ -123,7 +123,7 @@ class CloudFront:
 			"IsIPV6Enabled": False 
 			})
 
-		api.WriteMessageToReservationOutput(context.reservation.reservation_id, "Waiting for CloudFront distribution to finish deployment...")
+		api.WriteMessageToReservationOutput(context.reservation.reservation_id, "Waiting for CloudFront distribution to finish deployment, this may take up to 15 minutes...")
 		api.SetServiceLiveStatus(context.reservation.reservation_id, context.resource.name, "In Progress", "Deployment in progress")
 		self._wait_for_distribution_deployed(create_response["Distribution"]["Id"], cf_client)
 		api.SetServiceLiveStatus(context.reservation.reservation_id, context.resource.name, "Online", "Deployment Complete")
