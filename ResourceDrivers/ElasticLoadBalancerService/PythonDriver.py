@@ -2,6 +2,8 @@ import datetime
 from cloudshell.api.cloudshell_api import CloudShellAPISession, AttributeNameValue
 from cloudshell.shell.core.context import ResourceCommandContext, InitCommandContext
 import boto3
+from botocore.exceptions import ClientError
+from time import sleep
 import yaml
 
 class ElasticLoadBalancer:
@@ -78,6 +80,13 @@ class ElasticLoadBalancer:
 		configure_result = elb_client.configure_health_check(LoadBalancerName=elb_name, HealthCheck=elb_healthcheck_config)
 
 		create_sg_result = ec2_client.create_security_group(GroupName=elb_name + "SG", VpcId=self._get_instance_vpc(context, instance_ids[0]), Description="SG for ELB HTTP Access")
+		group_available = False
+		while not group_available:
+			try:
+				sg_description = ec2_client.describe_security_groups(GroupIds=[create_sg_result["GroupId"]])
+				group_available = True
+			except ClientError as error:
+				sleep(2)
 		create_tags_result = ec2_client.create_tags(Resources=[create_sg_result["GroupId"]], Tags=reservation_tags)
 		for listener in listeners_list:
 			auth_in_result = ec2_client.authorize_security_group_ingress(GroupId=create_sg_result["GroupId"], IpProtocol="tcp", FromPort=listener["LoadBalancerPort"], ToPort=listener["LoadBalancerPort"], CidrIp="0.0.0.0/0")
@@ -92,7 +101,7 @@ class ElasticLoadBalancer:
 		api.SetServiceLiveStatus(context.reservation.reservation_id, context.resource.name, "Online", "Load Balancer Created Successfully")
 		api.SetServiceAttributesValues(context.reservation.reservation_id, context.resource.name, 
 			[AttributeNameValue("AWS ELB Name", elb_name), AttributeNameValue("External_URL", creation_result["DNSName"])])
-		return "Elastic Load Balancer created successfully at:\n" + "http://" + creation_result["DNSName"]
+		return "Elastic Load Balancer created successfully at:\n" + "http://" + creation_result["DNSName"] + "\nThis address may take a few minutes to become available due to DNS propagation"
 
 	def get_elb_dns(self, context):
 		elb_client = self._get_amazon_session(context).client("elb")
