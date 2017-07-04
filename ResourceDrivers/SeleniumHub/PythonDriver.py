@@ -64,12 +64,12 @@ class SeleniumHub:
 			with open(os.path.join(artifacts_folder_name, "test_output.txt"), mode="w") as output_file:
 				output_file.write(test_output)
 			
-			return_message = "Test passed, check attachments for output"
+			return_message = "Test {test_name} Passed, refresh the page to check attachments".format(test_name=test_name)
 		except subprocess.CalledProcessError as error:
 			with open(os.path.join(artifacts_folder_name, "test_output.txt"), mode="w") as output_file:
 				output_file.write("[{0}] {1}\n".format(error.returncode, error.output))
 			
-			return_message = "Test failed, check attachment for output"
+			return_message = "Test {test_name} Passed, refresh the page to check attachments".format(test_name=test_name)
 		except Exception as ex: 
 			with open(os.path.join(artifacts_folder_name, "test_output.txt"), mode="w") as output_file:
 				output_file.write(ex.message)
