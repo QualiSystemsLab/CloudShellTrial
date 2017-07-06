@@ -12,7 +12,7 @@ def config_web_servers(sandbox, components):
 	if "Build Number" in sandbox.global_inputs:
 		build_number = sandbox.global_inputs["Build Number"]
 	else:
-		build_number = '"default build"'
+		build_number = '"latest build"'
 	app_colors = ["ffebd1", "ffd1d1", "d1fffb", "d1d9ff", "d1ffda", "ffffff"]
 	api = sandbox.automation_api
 	components.refresh_components(sandbox)
