@@ -1,6 +1,8 @@
 from cloudshell.api.cloudshell_api import InputNameValue
 from cloudshell.workflow.orchestration.sandbox import Sandbox, Components
 import datetime
+import requests
+from time import sleep
 
 
 def config_web_servers(sandbox, components):
@@ -31,5 +33,11 @@ def config_web_servers(sandbox, components):
 
 	api.WriteMessageToReservationOutput(reservationId=sandbox.id, message="Configuring CloudFront Distribution...")
 	api.ExecuteCommand(sandbox.id, "AWS CloudFront", "Service", "create_dist", [InputNameValue("elb_name", elb_name)], True)
-
-	api.WriteMessageToReservationOutput(reservationId=sandbox.id, message='Sandbox setup finished successfully')
+	sandbox.components.refresh_components(sandbox)
+	cf_url = next(attribute.Value for attribute in sandbox.components.services["AWS CloudFront Distribution"].Attributes if attribute.Name == "External_URL")
+	wait_time = 0
+	while not (200 <= requests.get("http://" + cf_url).status_code < 300):
+		sleep(5)
+		wait_time += 5
+		if wait_time > 300:
+			raise Exception("Timeout while waiting for My App availability")
