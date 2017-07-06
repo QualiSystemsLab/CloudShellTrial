@@ -1,4 +1,6 @@
 from cloudshell.workflow.orchestration.sandbox import Sandbox, Components
+import requests
+from time import sleep
 
 
 def config_web_servers(sandbox, components):
@@ -27,6 +29,11 @@ def config_web_servers(sandbox, components):
 	for selenium_node in selenium_nodes:
 		sandbox.apps_configuration.set_config_param(selenium_node, 'hub_server_address', selenium_hub_address)
 
-	sandbox.apps_configuration.apply_apps_configurations(selenium_nodes )
-
-	api.WriteMessageToReservationOutput(reservationId=sandbox.id, message='Sandbox setup finished successfully')
+	sandbox.apps_configuration.apply_apps_configurations(selenium_nodes)
+	web_server_port = next(attribute.Value for attribute in web_servers[0].app_request.app_resource.LogicalResource.Attributes if attribute.Name == "WWW_Port")
+	wait_time = 0
+	while not (200 <= requests.get("http://" + web_servers[0].deployed_app.FullAddress + ":" + web_server_port).status_code < 300):
+		sleep(5)
+		wait_time += 5
+		if wait_time > 300:
+			raise Exception("Timeout while waiting for My App availability")
