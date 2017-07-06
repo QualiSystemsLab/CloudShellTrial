@@ -1,4 +1,4 @@
-from cloudshell.api.cloudshell_api import *
+from cloudshell.api.cloudshell_api import CloudShellAPISession
 from email_helper import SMTPClient
 from hubspot_helper import Hubspot_API_Helper
 from os import environ as parameter
@@ -6,6 +6,7 @@ import json
 import random
 import string
 import requests
+import datetime
 
 reservationContext = json.loads(parameter["reservationContext"])
 connectivityContext = json.loads(parameter["qualiConnectivityContext"])
@@ -92,10 +93,18 @@ if topologies_in_new_domain != blueprints_to_export:
 # Send Trial start notifications
 api.WriteMessageToReservationOutput(reservationContext["id"], "Sending trial start notifications")
 
+# Calculate reservation end time in miliseconds
+reservation_details = api.GetReservationDetails(reservationContext["id"]).ReservationDescription
+reservation_end_date = datetime.datetime.strptime(reservation_details.EndTime, "%d/%m/%Y %H:%M")
+reservation_end_time_in_ms = int((res_end_date - datetime.datetime.utcfromtimestamp(0)).total_seconds() * 1000)
+
 # Create Hubspot contact and enroll to Hubspot Workflow
+
 hubspot_helper = Hubspot_API_Helper("cba66474-e4e4-4f5b-9b9b-35620577f343")
 hubspot_helper.create_contact(first_name, last_name, email, company, phone)
 hubspot_helper.change_contact_property(email, "cloudshell_trial_password", generated_password)
+hubspot_helper.change_contact_property(email, "cloudshell_trial_end_date", str(reservation_end_time_in_ms))
+hubspot_helper.change_contact_property(email, "cloudshell_trial_owner", owner_email)
 hubspot_helper.enroll_contact_to_workflow(email, "1980406")
 
 # Send E-mail to owner + admin
