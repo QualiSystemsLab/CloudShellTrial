@@ -1,4 +1,6 @@
 from cloudshell.workflow.orchestration.sandbox import Sandbox, Components
+import requests
+from time import sleep
 
 
 def config_web_servers(sandbox, components):
@@ -7,7 +9,10 @@ def config_web_servers(sandbox, components):
 		:param Components components:
 		:return:
 	"""
-	build_number = sandbox.global_inputs["Build Number"]
+	if "Build Number" in sandbox.global_inputs:
+		build_number = sandbox.global_inputs["Build Number"]
+	else:
+		build_number = '"default build"'
 	app_colors = ["ffebd1", "ffd1d1", "d1fffb", "d1d9ff", "d1ffda", "ffffff"]
 	api = sandbox.automation_api
 	components.refresh_components(sandbox)
@@ -29,5 +34,10 @@ def config_web_servers(sandbox, components):
 	my_app_addresses_string = ",".join(my_app_addresses)
 	sandbox.apps_configuration.set_config_param(ha_proxy, 'web_server_addresses', my_app_addresses_string)
 	sandbox.apps_configuration.apply_apps_configurations([ha_proxy])
-
-	api.WriteMessageToReservationOutput(reservationId=sandbox.id, message='Sandbox setup finished successfully')
+	ha_proxy_port = next(attribute.Value for attribute in ha_proxy.app_request.app_resource.LogicalResource.Attributes if attribute.Name == "WWW_Port")
+	wait_time = 0
+	while not (200 <= requests.get("http://" + ha_proxy.deployed_app.FullAddress + ":" + ha_proxy_port).status_code < 300):
+		sleep(5)
+		wait_time += 5
+		if wait_time > 300:
+			raise Exception("Timeout while waiting for My App availability")
