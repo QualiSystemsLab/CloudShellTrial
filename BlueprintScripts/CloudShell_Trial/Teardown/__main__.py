@@ -47,6 +47,7 @@ api.UpdateUser(username, email, isActive=False)
 groups_in_domain = [group.Name for group in api.GetDomainDetails(domain_name).Groups if group.Name != "System Administrators"]
 groups_in_domain_users = itertools.chain([group.Users for group in api.GetGroupsDetails().Groups if group.Name in groups_in_domain])
 groups_in_domain_users = [user.Name for user in groups_in_domain_users]
+api.ArchiveDomain(domain_name)
 if username in groups_in_domain_users:
 	email_title = "CloudShell Trial: Failed to remove user from domain"
 	email_body = "Failed to remove {user} from trial domain!".format(user=username)
