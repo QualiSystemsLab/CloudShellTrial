@@ -31,9 +31,17 @@ def config_web_servers(sandbox, components):
 
 	sandbox.apps_configuration.apply_apps_configurations(selenium_nodes)
 	web_server_port = next(attribute.Value for attribute in web_servers[0].app_request.app_resource.LogicalResource.Attributes if attribute.Name == "WWW_Port")
+	web_server_details = api.GetResourceDetails(web_servers[0].deployed_app.Name)
+	web_server_public_ip = next(att.Value for att in web_server_details.ResourceAttributes if att.Name == "Public IP")
 	wait_time = 0
-	while not (200 <= requests.get("http://" + web_servers[0].deployed_app.FullAddress + ":" + web_server_port).status_code < 300):
-		sleep(5)
-		wait_time += 5
+	my_app_available = False
+	while not my_app_available:
+		try:
+			get_result = requests.get("http://" + web_server_public_ip + ":" + web_server_port)
+			my_app_available = (200 <= get_result.status_code < 300)
+		except requests.ConnectionError:
+			sleep(5)
+			wait_time += 5
+
 		if wait_time > 300:
 			raise Exception("Timeout while waiting for My App availability")
