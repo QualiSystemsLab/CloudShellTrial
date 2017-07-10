@@ -1,0 +1,6 @@
+cloudshell-automation-api
+cloudshell-cp-vcenter>=1.0.0,<1.1.0
+cloudshell-core
+cloudshell-shell-core
+paramiko
+pygithub
