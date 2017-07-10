@@ -1,2 +1,3 @@
 cloudshell-automation-api
 cloudshell-orch-core
+requests
