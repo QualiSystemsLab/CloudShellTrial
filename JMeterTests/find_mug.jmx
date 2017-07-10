@@ -223,7 +223,7 @@
               <collectionProp name="HeaderManager.headers">
                 <elementProp name="Referer" elementType="Header">
                   <stringProp name="Header.name">Referer</stringProp>
-                  <stringProp name="Header.value">http://34.203.222.127:8000/en_US/taxons/mugs?criteria%5Bsearch%5D%5Bvalue%5D=cum</stringProp>
+                  <stringProp name="Header.value">http://34.203.222.127:8000/en_US/taxons/mugs?criteria%5Bsearch%5D%5Bvalue%5D=quia</stringProp>
                 </elementProp>
                 <elementProp name="Accept-Language" elementType="Header">
                   <stringProp name="Header.name">Accept-Language</stringProp>
