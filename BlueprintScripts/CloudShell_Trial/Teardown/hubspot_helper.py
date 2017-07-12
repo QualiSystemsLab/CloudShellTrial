@@ -23,5 +23,5 @@ class Hubspot_API_Helper:
 							params={"hapikey":self.api_key})		
 
 	def change_contact_property(self, contact_email, property_name, property_value):
-		post_result = requests.post(self.api_base + "/contacts/v1/contact/email/{email}/profile".format(email=contact_email), 
+		return requests.post(self.api_base + "/contacts/v1/contact/email/{email}/profile".format(email=contact_email), 
 							params={"hapikey":self.api_key}, json={"properties":[{"property":property_name, "value":property_value}]})
