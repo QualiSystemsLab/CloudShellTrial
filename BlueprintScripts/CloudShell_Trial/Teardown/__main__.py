@@ -36,9 +36,9 @@ api.WriteMessageToReservationOutput(reservationContext["id"], "Sending 'Trial En
 hubspot_helper = Hubspot_API_Helper("cba66474-e4e4-4f5b-9b9b-35620577f343")
 hubspot_helper.enroll_contact_to_workflow(email, "1980444")
 
-email_title = "CloudShell Trial: Trial has ended for {user}".format(username)
+email_title = "CloudShell Trial: Trial has ended for {user}".format(user=username)
 email_body = "The CloudShell trial for {user} has ended".format(user=username)
-smtp_client.send_email(",".join(owner_email, admin_email), email_title, email_body, False)
+smtp_client.send_email(",".join([owner_email, admin_email]), email_title, email_body, False)
 
 # remove user from groups and deactivate
 api.WriteMessageToReservationOutput(reservationContext["id"], "Deactivating user and removing permissions")
