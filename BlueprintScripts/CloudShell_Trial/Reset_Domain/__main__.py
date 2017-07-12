@@ -21,8 +21,20 @@ domain_name = '.'.join(username.split('.')[:-1]).replace('@', '-')
 
 api = CloudShellAPISession(host=connectivityContext["serverAddress"], token_id=connectivityContext["adminAuthToken"], domain=reservationContext["domain"])
 
-blueprints_in_domain = [blueprint.Name for blueprint in api.GetDomainDetails(domain_name).Topologies]
-api.RemoveTopologiesFromDomain(domain_name, blueprints_in_domain)
+domain_details = api.GetDomainDetails(domain_name)
+domain_topologies_folder = "\\".join(domain_details.TopologiesFolder.split("\\")[1:])
+master_domain_details = api.GetDomainDetails("Master")
+master_topologies_folder = "\\".join(master_domain_details.TopologiesFolder.split("\\")[1:])
+
+blueprints_in_domain = [blueprint.Name for blueprint in domain_details.Topologies]
+blueprints_in_master_domain = [blueprint.Name for blueprint in master_domain_details.Topologies]
+
+
+# Necessary to comply with "RemoveTopologiesFromDomain" API - chain the topology full path to the topology name.
+blueprints_to_remove = [master_topologies_folder + "\\" + blueprint_name if blueprint_name in blueprints_in_master_domain else domain_topologies_folder + "\\" + blueprint_name
+						for blueprint_name in blueprints_in_domain]
+
+api.RemoveTopologiesFromDomain(domain_name, blueprints_to_remove)
 
 api_root_url = 'http://{0}:{1}/Api'.format(connectivityContext["serverAddress"], connectivityContext["qualiAPIPort"])
 blueprints_to_export = [blueprint.Name for blueprint in api.GetDomainDetails("Master").Topologies]
@@ -40,6 +52,7 @@ new_domain_authcode = "Basic " + login_result.content[1:-1]
 
 import_result = requests.post(api_root_url + "/Package/ImportPackage", headers={"Authorization": new_domain_authcode}, files={'QualiPackage': export_result.content})
 topologies_in_new_domain = [blueprint.Name for blueprint in api.GetDomainDetails(domain_name).Topologies]
+api.RemoveTopologiesFromDomain(domain_name, ["Master topologies/Vanilla Operating Systems"])
 if topologies_in_new_domain != blueprints_to_export:
 	# TODO: send e-mail to owner & admin
 	api.WriteMessageToReservationOutput(reservationContext["id"], "Topologies not imported successfully, aborting trial creation")
