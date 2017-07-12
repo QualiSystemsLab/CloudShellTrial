@@ -1,4 +1,4 @@
-from cloudshell.api.cloudshell_api import CloudShellAPISession
+from cloudshell.api.cloudshell_api import CloudShellAPISession, UserUpdateRequest
 from email_helper import SMTPClient
 from hubspot_helper import Hubspot_API_Helper
 from os import environ as parameter
@@ -83,6 +83,7 @@ new_domain_authcode = "Basic " + login_result.content[1:-1]
 
 import_result = requests.post(api_root_url + "/Package/ImportPackage", headers={"Authorization": new_domain_authcode}, files={'QualiPackage': export_result.content})
 topologies_in_new_domain = [blueprint.Name for blueprint in api.GetDomainDetails(domain_name).Topologies]
+api.RemoveTopologiesFromDomain(domain_name, ["Master topologies/Vanilla Operating Systems"])
 if topologies_in_new_domain != blueprints_to_export:
 	email_title = "CloudShell Trial: Failed to setup trial"
 	email_body = "Failed to setup trail for {user} because there was an error during import of blueprints to the new domain".format(user=new_username)
@@ -95,8 +96,11 @@ api.WriteMessageToReservationOutput(reservationContext["id"], "Sending trial sta
 
 # Calculate reservation end time in miliseconds
 reservation_details = api.GetReservationDetails(reservationContext["id"]).ReservationDescription
-reservation_end_date = datetime.datetime.strptime(reservation_details.EndTime, "%d/%m/%Y %H:%M")
-reservation_end_time_in_ms = int((res_end_date - datetime.datetime.utcfromtimestamp(0)).total_seconds() * 1000)
+try:
+	reservation_end_date = datetime.datetime.strptime(reservation_details.EndTime, "%d/%m/%Y %H:%M").replace(hour=0, minute=0, second=0, microsecond=0)
+except ValueError:
+	reservation_end_date = datetime.datetime.strptime(reservation_details.EndTime, "%m/%d/%Y %H:%M").replace(hour=0, minute=0, second=0, microsecond=0)
+reservation_end_time_in_ms = int((reservation_end_date - datetime.datetime.utcfromtimestamp(0)).total_seconds() * 1000)
 
 # Create Hubspot contact and enroll to Hubspot Workflow
 
