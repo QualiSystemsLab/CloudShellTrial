@@ -1,4 +1,5 @@
 from cloudshell.api.cloudshell_api import *
+from email_helper import SMTPClient
 from os import environ as parameter
 import json
 import requests
@@ -16,8 +17,16 @@ company = global_inputs["Company Name"]
 phone = global_inputs["Phone number"]
 owner_email = global_inputs["Quali Owner"]
 
-extension_period_in_days = "5"
 api = CloudShellAPISession(host=connectivityContext["serverAddress"], token_id=connectivityContext["adminAuthToken"], domain=reservationContext["domain"])
+
+# Get SMTP Details from Resource
+smtp_resource = api.FindResources('Mail Server', 'SMTP Server').Resources[0]
+smtp_resource_details = api.GetResourceDetails(smtp_resource.FullPath)
+smtp_attributes = {attribute.Name: attribute.Value if attribute.Type != "Password" else api.DecryptPassword(attribute.Value).Value for attribute in smtp_resource_details.ResourceAttributes}
+smtp_client = SMTPClient(smtp_attributes["User"], smtp_attributes["Password"], smtp_resource_details.Address, smtp_attributes["Port"], "trial@quali.com")
+admin_email = api.GetUserDetails("admin").Email
+
+extension_period_in_days = "5"
 
 api.ExtendReservation(reservationContext["id"], 24 * 60 * int(extension_period_in_days))
 reservation_details = api.GetReservationDetails(reservationContext["id"]).ReservationDescription
@@ -31,6 +40,8 @@ hubspot_helper = Hubspot_API_Helper("cba66474-e4e4-4f5b-9b9b-35620577f343")
 hubspot_helper.change_contact_property(email, "cloudshell_trial_end_date", str(reservation_end_time_in_ms))
 hubspot_helper.enroll_contact_to_workflow(email, "2012345")
 
-# Todo send "Extended Trial" e-mail to owner + admin
+email_title = "CloudShell Trial: Trial Extension"
+email_body = "The Trial for {user} has been extended by 5 days".format(user=email)
+smtp_client.send_email(",".join([owner_email, admin_email]), email_title, email_body, False)
 
 api.WriteMessageToReservationOutput(reservationContext["id"], "Trial Extended by " + extension_period_in_days + " days")

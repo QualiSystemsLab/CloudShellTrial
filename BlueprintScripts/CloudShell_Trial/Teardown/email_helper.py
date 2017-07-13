@@ -17,25 +17,25 @@ class SMTPClient:
 			# Create message container - the correct MIME type is multipart/alternative.
 			msg = MIMEMultipart('alternative')
 			msg['Subject'] = message_title
-			msg['From'] = smtp_user 
+			msg['From'] = self.smtp_user 
 			if self.send_as: msg['From'] = self.send_as
 			msg['To'] = recipient_list[0]
 			if len(recipient_list) > 1: msg['Cc'] = ', '.join(recipient_list[1:])
 
 			# Create the body of the message (a plain-text and an HTML version).
+			text = message_body
 			if is_html:
-				text = message_body
 				html = message_body
-			else:
-				text = message_body
-				html = None
+
 			# Record the MIME types of both parts - text/plain and text/html.
 			part1 = MIMEText(text, 'plain')
-			part2 = MIMEText(html, 'html')
+			if is_html:
+				part2 = MIMEText(html, 'html')
 
 			# the HTML message, is best and preferred.
 			msg.attach(part1)
-			msg.attach(part2)
+			if is_html:
+				msg.attach(part2)
 
 			# Send the message via local SMTP server.
 			smtp_session = smtplib.SMTP(self.smtp_address, self.smtp_port)
@@ -48,5 +48,5 @@ class SMTPClient:
 			smtp_session.sendmail(msg['From'], recipient_list, msg.as_string())
 			smtp_session.quit()
 			return True
-		except Exception:
-			return False
+		except Exception as ex:
+			return ex.message
