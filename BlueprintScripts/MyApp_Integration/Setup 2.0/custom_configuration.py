@@ -5,10 +5,10 @@ from time import sleep
 
 def config_web_servers(sandbox, components):
 	"""
-	    :param Sandbox sandbox:
-	    :param Components components:
-	    :return:
-    """
+		:param Sandbox sandbox:
+		:param Components components:
+		:return:
+	"""
 	build_number = sandbox.global_inputs["Build Number"]
 	api = sandbox.automation_api
 	components.refresh_components(sandbox)
@@ -28,7 +28,8 @@ def config_web_servers(sandbox, components):
 	selenium_nodes = components.get_apps_by_name_contains("Selenium Node")
 	for selenium_node in selenium_nodes:
 		sandbox.apps_configuration.set_config_param(selenium_node, 'hub_server_address', selenium_hub_address)
-
+	
+	sleep(30)
 	sandbox.apps_configuration.apply_apps_configurations(selenium_nodes)
 	web_server_port = next(attribute.Value for attribute in web_servers[0].app_request.app_resource.LogicalResource.Attributes if attribute.Name == "WWW_Port")
 	web_server_details = api.GetResourceDetails(web_servers[0].deployed_app.Name)
