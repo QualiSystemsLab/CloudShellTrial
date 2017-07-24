@@ -33,7 +33,8 @@ admin_email = api.GetUserDetails("admin").Email
 # Create Domain
 api.WriteMessageToReservationOutput(reservationContext["id"], "Creating New Domain")
 domain_name = '.'.join(new_username.split('.')[:-1]).replace('@', '-')
-if domain_name in [domain.Name for domain in api.GetGroupDomains("System Administrators").TestShellDomains]:
+
+if domain_name in [domain.Name for domain in api.GetResourceDetails("AWS us-east-1", True).Domains]:
 	id_suffix = 1
 	while domain_name + str(id_suffix) in [domain.Name for domain in api.GetGroupDomains("System Administrators").TestShellDomains]: 
 		id_suffix += 1
