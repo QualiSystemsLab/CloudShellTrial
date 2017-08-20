@@ -17,10 +17,12 @@ phone = global_inputs["Phone number"]
 owner_email = global_inputs["Quali Owner"]
 
 username = email
-domain_name = '.'.join(username.split('.')[:-1]).replace('@', '-')
 
 api = CloudShellAPISession(host=connectivityContext["serverAddress"], token_id=connectivityContext["adminAuthToken"], domain=reservationContext["domain"])
 
+user_info = api.GetUserDetails(username)
+group_name = user_info.Groups[0].Name
+domain_name = group_name
 domain_details = api.GetDomainDetails(domain_name)
 domain_topologies_folder = "\\".join(domain_details.TopologiesFolder.split("\\")[1:])
 master_domain_details = api.GetDomainDetails("Master")

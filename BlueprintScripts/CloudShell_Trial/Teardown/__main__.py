@@ -21,8 +21,9 @@ owner_email = global_inputs["Quali Owner"]
 
 api = CloudShellAPISession(host=connectivityContext["serverAddress"], token_id=connectivityContext["adminAuthToken"], domain=reservationContext["domain"])
 username = email
-domain_name = '.'.join(username.split('.')[:-1]).replace('@', '-')
-group_name = domain_name
+user_info = api.GetUserDetails(username)
+group_name = user_info.Groups[0].Name
+domain_name = group_name
 
 # Get SMTP Details from Resource
 smtp_resource = api.FindResources('Mail Server', 'SMTP Server').Resources[0]
