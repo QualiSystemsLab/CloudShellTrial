@@ -61,7 +61,7 @@ api.UpdateUsersLimitations([UserUpdateRequest(Username=email, MaxConcurrentReser
 api.WriteMessageToReservationOutput(reservationContext["id"], "Configuring new domain permissions")
 new_group_name = domain_name
 api.AddNewGroup(groupName=new_group_name, description="Regular Users Group for " + domain_name + " domain", groupRole="Regular")
-api.AddUsersToGroup(usernames=[new_username], groupName=new_group_name)
+api.AddUsersToGroup(usernames=[new_username, owner_email], groupName=new_group_name)
 api.AddGroupsToDomain(domainName=domain_name, groupNames=[new_group_name])
 
 # Import content
