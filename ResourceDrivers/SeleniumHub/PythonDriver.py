@@ -56,22 +56,22 @@ class SeleniumHub:
 		api.WriteMessageToReservationOutput(context.reservation.reservation_id, "Running Test script {1} with parameters {2}".format(
 			 sys.executable, test_name + '.py', 'hub={0}'.format(context.resource.address) + ' target={0}'.format(target_url)))
 
-		test_results_filename = None
+		test_results_filename = os.path.join(artifacts_folder_name, "test_output.txt")
 		return_message =""
 		try:
 			# Call the python executable running this driver to run the test.
-			test_output = subprocess.check_output([sys.executable, test_name + ".py", "hub=" + context.resource.address, "target=" + target_url, "artifacts_folder=" + artifacts_folder_name])
-			with open(os.path.join(artifacts_folder_name, "test_output.txt"), mode="w") as output_file:
+			test_output = subprocess.check_output([sys.executable, test_name + ".py", "hub=" + context.resource.address, "target=" + target_url, "artifacts_folder=" + artifacts_folder_name], stderr=subprocess.STDOUT)
+			with open(test_results_filename, mode="w") as output_file:
 				output_file.write(test_output)
 			
 			return_message = "Test {test_name} Passed, refresh the page to check attachments".format(test_name=test_name)
 		except subprocess.CalledProcessError as error:
-			with open(os.path.join(artifacts_folder_name, "test_output.txt"), mode="w") as output_file:
-				output_file.write("[{0}] {1}\n".format(error.returncode, error.output))
+			with open(test_results_filename, mode="a" if os.path.exists(test_results_filename) else "w") as output_file:
+				output_file.write("Test Failed with output:\n{1}\nAnd error code [{0}]".format(error.returncode, error.output))
 			
-			return_message = "Test {test_name} Passed, refresh the page to check attachments".format(test_name=test_name)
+			return_message = "Test {test_name} Failed, refresh the page to check attachments".format(test_name=test_name)
 		except Exception as ex: 
-			with open(os.path.join(artifacts_folder_name, "test_output.txt"), mode="w") as output_file:
+			with open(test_results_filename, mode="w") as output_file:
 				output_file.write(ex.message)
 			
 			return_message = "Unhandled exception, check attachment for output"
