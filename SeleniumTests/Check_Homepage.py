@@ -15,6 +15,7 @@ selenium_driver = webdriver.Remote(command_executor="http://" + hub_address + ":
 print(datetime.strftime(datetime.now(), timeformat) + "Getting test page...")
 selenium_driver.get(test_url)
 if "ERR" in selenium_driver.find_element_by_id("main-frame-error").text:
+	print(datetime.strftime(datetime.now(), timeformat) + "Test Failed: Could not get Test Page")
 	raise RuntimeError("Test Failed: could not get Test Page")
 
 print(datetime.strftime(datetime.now(), timeformat) + "Taking screenshot...")
