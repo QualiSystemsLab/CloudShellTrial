@@ -7,10 +7,10 @@ from time import sleep
 
 def config_web_servers(sandbox, components):
 	"""
-	    :param Sandbox sandbox:
-	    :param Components components:
-	    :return:
-    """
+		:param Sandbox sandbox:
+		:param Components components:
+		:return:
+	"""
 	build_number = sandbox.global_inputs["Build Number"]
 	app_colors = ["ffebd1", "ffd1d1", "d1fffb", "d1d9ff", "d1ffda", "ffffff"]
 	api = sandbox.automation_api
@@ -24,7 +24,7 @@ def config_web_servers(sandbox, components):
 	elb_name = "My-App-ELB" + datetime.datetime.strftime(datetime.datetime.now(), "%H-%M-%S")
 	command_inputs = {"elb_name":elb_name, "listeners":"HTTP:80->HTTP:8000", "instance_ids":my_app_instance_ids, "use_cookie":"True"}
 	command_inputs = [InputNameValue(k, v) for k, v in command_inputs.items()]
-	api.EnqueueCommand(sandbox.id, "AWS Elastic Load Balancer", "Service", "create_elb", command_inputs, True)
+	api.ExecuteCommand(sandbox.id, "AWS Elastic Load Balancer", "Service", "create_elb", command_inputs, True)
 
 	api.WriteMessageToReservationOutput(reservationId=sandbox.id, message="Configuring My App Web Servers with build {}...".format(build_number))
 	for server, app_color in zip(web_servers, app_colors):
