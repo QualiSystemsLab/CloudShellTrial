@@ -1,4 +1,4 @@
-from cloudshell.api.cloudshell_api import CloudShellAPISession, UserUpdateRequest
+from cloudshell.api.cloudshell_api import CloudShellAPISession, UserUpdateRequest, ResourceAttributesUpdateRequest, AttributeNameValue
 from email_helper import SMTPClient
 from hubspot_helper import Hubspot_API_Helper
 from os import environ as parameter
@@ -111,6 +111,13 @@ hubspot_helper.change_contact_property(email, "cloudshell_trial_password", gener
 hubspot_helper.change_contact_property(email, "cloudshell_trial_end_date", str(reservation_end_time_in_ms))
 hubspot_helper.change_contact_property(email, "cloudshell_trial_owner", owner_email)
 hubspot_helper.enroll_contact_to_workflow(email, "1980406")
+
+# Create Trial Resource and add to reservation
+create_res_result = api.CreateResource("CloudShell Trial", "CloudShell VE Trial", "CS Trial {0}".format(domain_name), "NA", "CloudShell Trials", resourceDescription="Trial resource for {0} {1}".format(first_name, last_name))
+res_att_values = {"Company Name": company, "email": email, "First Name": first_name, "Last Name": last_name, "Phone Number": phone, "Quali Owner": owner_email}
+api.SetAttributesValues([ResourceAttributesUpdateRequest(create_res_result.Name, [AttributeNameValue(k,v) for k,v in res_att_values.items()])])
+api.AddResourcesToReservation(reservationContext["id"], [create_res_result.Name])
+
 
 # Send E-mail to owner + admin
 email_title = "CloudShell Trial: Trial setup complete"
