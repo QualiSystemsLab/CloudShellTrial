@@ -41,14 +41,26 @@ email_title = "CloudShell Trial: Trial has ended for {user}".format(user=usernam
 email_body = "The CloudShell trial for {user} has ended".format(user=username)
 smtp_client.send_email(",".join([owner_email, admin_email]), email_title, email_body, False)
 
+# Send end-of-trial activity report
+trial_resource = next(resource for resource in api.GetReservationDetails(reservationContext["id"]).ReservationDescription.Resources if resource.ResourceModelName == "CloudShell VE Trial")
+resource_details = api.GetResourceDetails(trial_resource.Name, True)
+resource_atts_dict = {attribute.Name:attribute.Value for attribute in resource_details.ResourceAttributes}
+command_inputs = {"start_date":"30daysAgo", "end_date":"today", "cloudshell_username":resource_atts_dict["email"], "email_address":resource_atts_dict["Quali Owner"], 
+					"email_title": "End of Trial Activity Report for {0} {1}".format(resource_atts_dict["First Name"], resource_atts_dict["Last Name"]) }
+api.ExecuteCommand(reservationContext["id"], "Admin-Google Analytics", "Service", "email_ga_user_report_to_contact", [InputNameValue(k,v) for k,v in command_inputs.items()], True)
+
 # remove user from groups and deactivate
 api.WriteMessageToReservationOutput(reservationContext["id"], "Deactivating user and removing permissions")
 api.RemoveUsersFromGroup([username], group_name)
 api.UpdateUser(username, email, isActive=False)
+
 groups_in_domain = [group.Name for group in api.GetDomainDetails(domain_name).Groups if group.Name != "System Administrators"]
 groups_in_domain_users = sum([group.Users for group in api.GetGroupsDetails().Groups if group.Name in groups_in_domain],[])
 groups_in_domain_user_names = [user.Name for user in groups_in_domain_users]
 api.ArchiveDomain(domain_name)
+
+
+
 if username in groups_in_domain_user_names:
 	email_title = "CloudShell Trial: Failed to remove user from domain"
 	email_body = "Failed to remove {user} from trial domain!".format(user=username)
