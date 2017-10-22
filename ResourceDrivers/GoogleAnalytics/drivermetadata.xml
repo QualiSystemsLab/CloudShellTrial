@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Driver Name="Google Analytics Service" Version="1.0.0" MainClass="PythonDriver.GoogleAnalyticsService" Description="Google Analytics Service Driver">
+	<Layout>
+	<Category Name="Hidden Commands">
+	</Category>
+	<Category Name="Reporting">
+				<Command DisplayName="Get Analytics User Report" Name="generate_ga_user_report" Description="Produce a CSV Google Analytics Report for a specific user" Tags="" >
+						<Parameters>
+							<Parameter Name="start_date" Type="String" Mandatory="True" DisplayName="Start Date" DefaultValue=""  Description=""/>
+							<Parameter Name="end_date" Type="String" Mandatory="True" DisplayName="End Date" DefaultValue=""  Description=""/>
+							<Parameter Name="cloudshell_username" Type="String" Mandatory="True" DisplayName="CloudShell Username" DefaultValue=""  Description=""/>
+						</Parameters>
+			</Command>
+				<Command DisplayName="Attach Analytics User Report" Name="attach_ga_user_report_to_reservation" Description="Produce a CSV Google Analytics Report for a specific user and attach it to the reservation" Tags="" >
+						<Parameters>
+							<Parameter Name="start_date" Type="String" Mandatory="True" DisplayName="Start Date" DefaultValue=""  Description=""/>
+							<Parameter Name="end_date" Type="String" Mandatory="True" DisplayName="End Date" DefaultValue=""  Description=""/>
+							<Parameter Name="cloudshell_username" Type="String" Mandatory="True" DisplayName="CloudShell Username" DefaultValue=""  Description=""/>
+						</Parameters>
+			</Command>
+				<Command DisplayName="Email Analytics User Report" Name="email_ga_user_report_to_contact" Description="Produce a CSV Google Analytics Report for a specific user and e-mail it" Tags="" >
+						<Parameters>
+							<Parameter Name="start_date" Type="String" Mandatory="True" DisplayName="Start Date" DefaultValue=""  Description=""/>
+							<Parameter Name="end_date" Type="String" Mandatory="True" DisplayName="End Date" DefaultValue=""  Description=""/>
+							<Parameter Name="cloudshell_username" Type="String" Mandatory="True" DisplayName="CloudShell Username" DefaultValue=""  Description=""/>
+							<Parameter Name="email_address" Type="String" Mandatory="True" DisplayName="Target e-mail address(es)" DefaultValue=""  Description=""/>
+							<Parameter Name="email_title" Type="String" Mandatory="True" DisplayName="E-mail title line" DefaultValue=""  Description=""/>
+						</Parameters>
+			</Command>
+	</Category>
+	</Layout>
+</Driver>

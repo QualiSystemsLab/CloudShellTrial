@@ -1,0 +1,5 @@
+cloudshell-automation-api
+cloudshell-core
+cloudshell-shell-core
+google-api-python-client
+requests
