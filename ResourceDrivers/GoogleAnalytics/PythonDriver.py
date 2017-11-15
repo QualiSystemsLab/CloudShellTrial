@@ -103,7 +103,7 @@ class GoogleAnalyticsService:
 			smtp_client.send_email(",".join([email_address, admin_email]), email_title, "See attached user activity report", False, [filename])
 			return "User activity report emailed successfully"
 		else:
-			smtp_client.send_email(email_address, email_title, "No activity reported to date for this user", False)
+			smtp_client.send_email(",".join([email_address, admin_email]), email_title, "No activity reported to date for this user", False)
 
 
 
