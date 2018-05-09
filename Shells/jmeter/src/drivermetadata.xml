@@ -1,0 +1,14 @@
+<Driver Description="Describe the purpose of your CloudShell shell" MainClass="driver.JmeterDriver" Name="JmeterDriver" Version="1.0.0">
+	<Layout>
+		<Category Name="Testing">
+			<Command Description="Run a JMeter Test" DisplayName="Run JMeter Test" Name="run_test" Tags="" >
+				<Parameters>
+					<Parameter Name="test_name" Type="String" Mandatory="True" DisplayName="Test Name" DefaultValue=""  Description="Name of the JMeter Test to Run"/>
+					<Parameter Name="target_resource_name" Type="String" Mandatory="False" DisplayName="Target Resource Name" DefaultValue=""  Description="Name of the resource to test (leave blank if connected)"/>
+					<Parameter Name="thread_count" Type="String" Mandatory="True" DisplayName="Test Thread count" DefaultValue=""  Description="Number of parallel runs of the test flow"/>
+				</Parameters>
+			</Command>
+			<Command Description="Show Tests available in the tests location" DisplayName="Show Available Tests" Name="show_available_tests" Tags="" />
+		</Category>
+	</Layout>
+</Driver>

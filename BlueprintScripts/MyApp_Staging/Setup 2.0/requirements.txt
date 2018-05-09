@@ -1,3 +1,4 @@
 cloudshell-automation-api
-cloudshell-orch-core
+cloudshell-orch-core>=1.6.0.0,<1.7.0.0
+cloudshelltrialutils
 requests

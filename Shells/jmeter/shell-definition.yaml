@@ -1,0 +1,50 @@
+tosca_definitions_version: tosca_simple_yaml_1_0
+
+metadata:
+  template_name: JMeter
+  template_author: Leeor Vardi
+  template_version: 1.0.1.32
+  template_icon: shell-icon.png
+
+description: >
+  TOSCA based deployed app shell
+
+imports:
+  - cloudshell_standard: cloudshell_deployed_app_standard_1_0_1.yaml
+
+node_types:
+
+  vendor.switch.Jmeter:
+    derived_from: cloudshell.nodes.DeployedApp
+    properties:
+      Tests Location:
+        type: string          
+        description: Location of JMeter test files (Base URL)
+      RDP_Port:
+        type: string          
+        default: 3389
+        description: Port for RDP Connection via QualiX
+      SSH_Port:
+        type: string          
+        default: 22
+        description: Port for SSH Connection via QualiX
+    artifacts:
+      icon:
+        file: shell-icon.png
+        type: tosca.artifacts.File
+      driver:
+        file: JmeterDriver.zip
+        type: tosca.artifacts.File
+    capabilities:
+      auto_discovery_capability:
+        type: cloudshell.capabilities.AutoDiscovery
+        properties:        
+          enable_auto_discovery:
+            type: boolean
+            default: false
+          auto_discovery_description:
+            type: string
+            default: Describe the auto discovery
+          inventory_description:
+            type: string
+            default: Describe the resource shell template

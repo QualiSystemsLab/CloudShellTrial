@@ -1,6 +1,6 @@
 import datetime
 from cloudshell.api.cloudshell_api import CloudShellAPISession, AttributeNameValue
-from cloudshell.shell.core.context import ResourceCommandContext, InitCommandContext
+from cloudshell.shell.core.driver_context import *
 import boto3
 from botocore.exceptions import ClientError
 from time import sleep
@@ -100,7 +100,7 @@ class ElasticLoadBalancer:
 		
 		api.SetServiceLiveStatus(context.reservation.reservation_id, context.resource.name, "Online", "Load Balancer Created Successfully")
 		api.SetServiceAttributesValues(context.reservation.reservation_id, context.resource.name, 
-			[AttributeNameValue("AWS ELB Name", elb_name), AttributeNameValue("External_URL", creation_result["DNSName"])])
+			[AttributeNameValue("AWS ELB Name", elb_name), AttributeNameValue("External_URL", "http://" + creation_result["DNSName"])])
 		return "Elastic Load Balancer created successfully at:\n" + "http://" + creation_result["DNSName"] + "\nThis address may take a few minutes to become available due to DNS propagation"
 
 	def get_elb_dns(self, context):

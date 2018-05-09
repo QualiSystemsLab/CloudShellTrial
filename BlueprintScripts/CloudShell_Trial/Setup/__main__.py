@@ -1,6 +1,6 @@
 from cloudshell.api.cloudshell_api import CloudShellAPISession, UserUpdateRequest, ResourceAttributesUpdateRequest, AttributeNameValue
-from email_helper import SMTPClient
-from hubspot_helper import Hubspot_API_Helper
+from cloudshelltrialutils.email_helper import SMTPClient
+from cloudshelltrialutils.hubspot_helper import Hubspot_API_Helper
 from os import environ as parameter
 import json
 import random
@@ -25,18 +25,18 @@ api = CloudShellAPISession(host=connectivityContext["serverAddress"], token_id=c
 
 # Get SMTP Details from Resource
 smtp_resource = api.FindResources('Mail Server', 'SMTP Server').Resources[0]
-smtp_resource_details = api.GetResourceDetails(smtp_resource.FullPath)
+smtp_resource_details = api.GetResourceDetails(smtp_resource.Name)
 smtp_attributes = {attribute.Name: attribute.Value if attribute.Type != "Password" else api.DecryptPassword(attribute.Value).Value for attribute in smtp_resource_details.ResourceAttributes}
 smtp_client = SMTPClient(smtp_attributes["User"], smtp_attributes["Password"], smtp_resource_details.Address, smtp_attributes["Port"], "trial@quali.com")
 admin_email = api.GetUserDetails("admin").Email
 
 # Create Domain
-api.WriteMessageToReservationOutput(reservationContext["id"], "Creating New Domain")
+api.WriteMessageToReservationOutput(reservationContext["id"], "1. Creating New Domain")
 domain_name = '.'.join(new_username.split('.')[:-1]).replace('@', '-')
 
 if domain_name in [domain.Name for domain in api.GetResourceDetails("AWS us-east-1", True).Domains]:
 	id_suffix = 1
-	while domain_name + str(id_suffix) in [domain.Name for domain in api.GetGroupDomains("System Administrators").TestShellDomains]: 
+	while domain_name + str(id_suffix) in [domain.Name for domain in api.GetResourceDetails("AWS us-east-1", True).Domains]: 
 		id_suffix += 1
 	domain_name = domain_name + str(id_suffix)
 	api.WriteMessageToReservationOutput(reservationContext["id"], "The requested domain already exists, appending {} to new domain name, please contact system admin at trial@quali.com".format(id_suffix))
@@ -45,12 +45,12 @@ else:
 	api.AddNewDomain(domainName=domain_name, description="Domain for {0} {1}'s Trial".format(first_name, last_name))
 
 # Create User Account
-api.WriteMessageToReservationOutput(reservationContext["id"], "Creating trial user")
+api.WriteMessageToReservationOutput(reservationContext["id"], "2. Creating trial user")
 if new_username in [user.Name.lower() for user in api.GetAllUsersDetails().Users]:
 	generated_password = ''.join(random.choice(string.ascii_letters + string.digits) for _ in range(8))
 	api.UpdateUser(username=new_username, email=email, isActive=True)
 	api.UpdateUserPassword(username=new_username, password=generated_password)
-	api.WriteMessageToReservationOutput(reservationContext["id"], "This user already had a trial, please contact system admin at trial@quali.com")
+	api.WriteMessageToReservationOutput(reservationContext["id"], "This user already had a trial, if this is an issue, please contact admin at trial@quali.com")
 else:
 	generated_password = ''.join(random.choice(string.ascii_letters + string.digits) for _ in range(8))
 	api.AddNewUser(username=new_username, password=generated_password, email=email, isActive=True)
@@ -58,14 +58,14 @@ else:
 api.UpdateUsersLimitations([UserUpdateRequest(Username=email, MaxConcurrentReservations="2", MaxReservationDuration=str(4*60))])
 
 # Create Group and add to domain
-api.WriteMessageToReservationOutput(reservationContext["id"], "Configuring new domain permissions")
+api.WriteMessageToReservationOutput(reservationContext["id"], "3. Configuring new domain permissions")
 new_group_name = domain_name
 api.AddNewGroup(groupName=new_group_name, description="Regular Users Group for " + domain_name + " domain", groupRole="Regular")
 api.AddUsersToGroup(usernames=[new_username, owner_email], groupName=new_group_name)
 api.AddGroupsToDomain(domainName=domain_name, groupNames=[new_group_name])
 
 # Import content
-api.WriteMessageToReservationOutput(reservationContext["id"], "Importing Content to new domain")
+api.WriteMessageToReservationOutput(reservationContext["id"], "4. Importing Content to new domain")
 api_root_url = 'http://{0}:{1}/Api'.format(connectivityContext["serverAddress"], connectivityContext["qualiAPIPort"])
 
 blueprints_to_export = [blueprint.Name for blueprint in api.GetDomainDetails("Master").Topologies]
@@ -92,8 +92,9 @@ if topologies_in_new_domain != blueprints_to_export:
 	api.WriteMessageToReservationOutput(reservationContext["id"], "Topologies not imported successfully, aborting trial creation")
 	api.EndReservation(reservationContext["id"])
 
+
 # Send Trial start notifications
-api.WriteMessageToReservationOutput(reservationContext["id"], "Sending trial start notifications")
+api.WriteMessageToReservationOutput(reservationContext["id"], "5. Creating or updating Hubspot contact")
 
 # Calculate reservation end time in miliseconds
 reservation_details = api.GetReservationDetails(reservationContext["id"]).ReservationDescription
@@ -112,12 +113,17 @@ hubspot_helper.change_contact_property(email, "cloudshell_trial_end_date", str(r
 hubspot_helper.change_contact_property(email, "cloudshell_trial_owner", owner_email)
 hubspot_helper.enroll_contact_to_workflow(email, "1980406")
 
+api.WriteMessageToReservationOutput(reservationContext["id"], "6. Creating Trial Resource")
+
 # Create Trial Resource and add to reservation
 create_res_result = api.CreateResource("CloudShell Trial", "CloudShell VE Trial", "CS Trial {0}".format(domain_name), "NA", "CloudShell Trials", resourceDescription="Trial resource for {0} {1}".format(first_name, last_name))
 res_att_values = {"Company Name": company, "email": email, "First Name": first_name, "Last Name": last_name, "Phone Number": phone, "Quali Owner": owner_email}
 api.SetAttributesValues([ResourceAttributesUpdateRequest(create_res_result.Name, [AttributeNameValue(k,v) for k,v in res_att_values.items()])])
 api.AddResourcesToReservation(reservationContext["id"], [create_res_result.Name])
 
+
+# Send Trial start notifications
+api.WriteMessageToReservationOutput(reservationContext["id"], "7. Sending trial start notifications")
 
 # Send E-mail to owner + admin
 email_title = "CloudShell Trial: Trial setup complete"

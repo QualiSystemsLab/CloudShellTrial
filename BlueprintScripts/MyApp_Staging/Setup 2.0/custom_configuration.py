@@ -38,7 +38,7 @@ def config_web_servers(sandbox, components):
 	sandbox.components.refresh_components(sandbox)
 	cf_url = next(attribute.Value for attribute in sandbox.components.services["AWS CloudFront"].Attributes if attribute.Name == "External_URL")
 	wait_time = 0
-	while not (200 <= requests.get("http://" + cf_url).status_code < 300):
+	while not (200 <= requests.get(cf_url).status_code < 300):
 		sleep(5)
 		wait_time += 5
 		if wait_time > 300:

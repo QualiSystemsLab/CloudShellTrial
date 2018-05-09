@@ -1,6 +1,6 @@
 import datetime
 from cloudshell.api.cloudshell_api import CloudShellAPISession, AttributeNameValue
-from cloudshell.shell.core.context import ResourceCommandContext, InitCommandContext
+from cloudshell.shell.core.driver_context import ResourceCommandContext, InitCommandContext
 from apiclient.discovery import build
 from oauth2client.service_account import ServiceAccountCredentials
 import httplib2
@@ -91,7 +91,7 @@ class GoogleAnalyticsService:
 		api = CloudShellAPISession(host=context.connectivity.server_address, port=context.connectivity.cloudshell_api_port, token_id=context.connectivity.admin_auth_token, domain="Global")
 		admin_email = api.GetUserDetails("admin").Email
 		smtp_resource = api.FindResources('Mail Server', 'SMTP Server').Resources[0]
-		smtp_resource_details = api.GetResourceDetails(smtp_resource.FullPath)
+		smtp_resource_details = api.GetResourceDetails(smtp_resource.Name)
 		smtp_attributes = {attribute.Name: attribute.Value if attribute.Type != "Password" else api.DecryptPassword(attribute.Value).Value for attribute in smtp_resource_details.ResourceAttributes}
 		smtp_client = SMTPClient(smtp_attributes["User"], smtp_attributes["Password"], smtp_resource_details.Address, smtp_attributes["Port"])
 		report_content = self.generate_ga_user_report(context, start_date, end_date, cloudshell_username)

@@ -1,3 +1,4 @@
 cloudshell-automation-api
+cloudshelltrialutils
 requests
 google-api-python-client

@@ -23,7 +23,6 @@ def config_web_servers(sandbox, components):
 	sandbox.apps_configuration.apply_apps_configurations(web_servers)
 
 	api.WriteMessageToReservationOutput(reservationId=sandbox.id, message='Configuring Selenium Grid...')
-
 	selenium_hub_address = components.get_apps_by_name_contains('Selenium Hub')[0].deployed_app.FullAddress
 	selenium_nodes = components.get_apps_by_name_contains("Selenium Node")
 	for selenium_node in selenium_nodes:

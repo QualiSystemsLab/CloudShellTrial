@@ -1,7 +1,7 @@
 import datetime
 from time import sleep
 from cloudshell.api.cloudshell_api import CloudShellAPISession, AttributeNameValue
-from cloudshell.shell.core.context import ResourceCommandContext, InitCommandContext
+from cloudshell.shell.core.driver_context import *
 import boto3
 import yaml
 
@@ -128,7 +128,7 @@ class CloudFront:
 		self._wait_for_distribution_deployed(create_response["Distribution"]["Id"], cf_client)
 		api.SetServiceLiveStatus(context.reservation.reservation_id, context.resource.name, "Online", "Deployment Complete")
 		api.SetServiceAttributesValues(context.reservation.reservation_id, context.resource.name, 
-			[AttributeNameValue("AWS CF ID", create_response["Distribution"]["Id"]), AttributeNameValue("External_URL", create_response["Distribution"]["DomainName"])])
+			[AttributeNameValue("AWS CF ID", create_response["Distribution"]["Id"]), AttributeNameValue("External_URL", "http://" + create_response["Distribution"]["DomainName"])])
 		return "CloudFront Distriubtion deployed successfully at:\n" + "http://" + create_response["Distribution"]["DomainName"]
 
 	def get_cf_dist_details(self, context):

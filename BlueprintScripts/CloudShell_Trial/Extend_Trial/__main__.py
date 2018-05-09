@@ -1,10 +1,10 @@
-from cloudshell.api.cloudshell_api import *
-from email_helper import SMTPClient
 from os import environ as parameter
+from cloudshell.api.cloudshell_api import *
+from cloudshelltrialutils.email_helper import SMTPClient
+from cloudshelltrialutils.hubspot_helper import Hubspot_API_Helper
 import json
 import requests
 import datetime
-from hubspot_helper import Hubspot_API_Helper
 
 reservationContext = json.loads(parameter["reservationContext"])
 connectivityContext = json.loads(parameter["qualiConnectivityContext"])

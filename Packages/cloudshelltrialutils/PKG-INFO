@@ -1,0 +1,10 @@
+Metadata-Version: 1.0
+Name: cloudshelltrialutils
+Version: 0.2
+Summary: A Utility package for CloudShell Trial Platform code
+Home-page: https://github.com/QualiSystemsLab/CloudShellTrial/tree/master/Packages/cloudshelltrialutils
+Author: Leeor Vardi
+Author-email: leeor.v@quali.com
+License: UNKNOWN
+Description: A Utility package for CloudShell Trial Platform code
+Platform: UNKNOWN

@@ -28,10 +28,10 @@ def config_web_servers(sandbox, components):
 
 		sandbox.apps_configuration.apply_apps_configurations(web_servers)
 
-		api.WriteMessageToReservationOutput(reservationId=sandbox.id, message='Configuring HA Proxy')
 
 		ha_proxy_apps = components.get_apps_by_name_contains('HA Proxy')
 		if ha_proxy_apps:
+			api.WriteMessageToReservationOutput(reservationId=sandbox.id, message='Configuring HA Proxy')
 			ha_proxy = ha_proxy_apps[0]
 			my_app_addresses = [web_server.deployed_app.FullAddress for web_server in web_servers]
 			my_app_addresses_string = ",".join(my_app_addresses)

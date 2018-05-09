@@ -1,0 +1,49 @@
+tosca_definitions_version: tosca_simple_yaml_1_0
+
+metadata:
+  template_name: Selenium
+  template_author: Leeor Vardi
+  template_version: 1.0.0.10
+  template_icon: shell-icon.png
+
+description: >
+  TOSCA based deployed app shell
+
+imports:
+  - cloudshell_standard: cloudshell_deployed_app_standard_1_0_1.yaml
+
+node_types:
+  vendor.switch.SeleniumHub:
+    derived_from: cloudshell.nodes.DeployedApp
+    properties:
+      Tests Location:
+        type: string          
+        description: Location of Selenium test files (Base URL)
+      WWW_Port:
+        type: string          
+        default: 80
+        description: Port for Web connectivity
+      SSH_Port:
+        type: string          
+        default: 22
+        description: Port for SSH Connection via QualiX
+    artifacts:
+      icon:
+        file: shell-icon.png
+        type: tosca.artifacts.File
+      driver:
+        file: SeleniumDriver.zip
+        type: tosca.artifacts.File
+    capabilities:
+      auto_discovery_capability:
+        type: cloudshell.capabilities.AutoDiscovery
+        properties:        
+          enable_auto_discovery:
+            type: boolean
+            default: false
+          auto_discovery_description:
+            type: string
+            default: Describe the auto discovery
+          inventory_description:
+            type: string
+            default: Describe the resource shell template

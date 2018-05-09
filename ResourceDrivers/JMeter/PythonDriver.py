@@ -7,7 +7,7 @@ import urllib
 import paramiko
 import traceback
 from cloudshell.api.cloudshell_api import CloudShellAPISession
-from cloudshell.shell.core.context import ResourceCommandContext, InitCommandContext
+from cloudshell.shell.core.driver_context import *
 from github import Github
 
 
